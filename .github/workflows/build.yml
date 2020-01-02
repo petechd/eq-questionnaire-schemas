@@ -1,0 +1,63 @@
+name: Test
+
+on: 
+  push:
+    tags-ignore:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Jsonnet
+        run: |
+          mkdir jsonnet
+          curl -o jsonnet.tar.gz -L https://github.com/google/jsonnet/releases/download/v0.14.0/jsonnet-bin-v0.14.0-linux.tar.gz
+          tar -xzf jsonnet.tar.gz -C jsonnet
+          echo "::add-path::jsonnet"
+      - name: Lint jsonnet
+        run: ./scripts/lint_jsonnet.sh
+      - name: Build schemas
+        run: ./scripts/build_schemas.sh
+      - name: Archive schema artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: data
+          path: data
+  test-schemas:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download built schemas
+        uses: actions/download-artifact@v1
+        with:
+          name: data
+      - name: Pull validator
+        run: ./scripts/pull_validator.sh
+      - name: Test schemas
+        run: ./scripts/test_schemas.sh
+  test-translation-templates:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: Download built schemas
+        uses: actions/download-artifact@v1
+        with:
+          name: data
+      - name: Cache virtualenv
+        uses: actions/cache@v1
+        with:
+            path: ~/.local/share/virtualenvs/
+            key: ${{ runner.os }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
+      - name: Install Pipenv
+        run: pip install pipenv==2018.11.26
+      - name: Install Virtual Environment
+        run: pipenv install --dev
+      - name: Test Translation Templates
+        run: make test-translation-templates

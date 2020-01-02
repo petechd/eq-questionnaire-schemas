@@ -1,0 +1,13 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+coloredlogs = "*"
+
+[packages]
+eq-translations = {editable = true,git = "https://github.com/ONSDigital/eq-translations.git",ref = "master"}
+
+[requires]
+python_version = "3.8"
