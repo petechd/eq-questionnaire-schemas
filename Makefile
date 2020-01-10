@@ -11,7 +11,6 @@ test-schemas:
 	pipenv run ./scripts/test_schemas.sh
 
 translate:
-	pipenv run pybabel compile -d translations
 	pipenv run python -m scripts.translate_schemas
 
 translation-templates:

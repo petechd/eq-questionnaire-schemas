@@ -49,27 +49,6 @@ def print_filename_results(filename, success=True):
         logger.error("%s - CHANGES FOUND", filename)
 
 
-def build_static_template(output_filepath):
-    subprocess.run(
-        [
-            "pipenv",
-            "run",
-            "pybabel",
-            "extract",
-            "-F",
-            "babel.cfg",
-            "-k",
-            "lazy_gettext",
-            "-k",
-            "gettext",
-            "-o",
-            output_filepath,
-            ".",
-        ],
-        check=False,
-    )
-
-
 def compare_files(source_dir, target_dir, filename):
     source_file = f"{source_dir}/{filename}"
     target_file = f"{target_dir}/{filename}"
@@ -122,13 +101,11 @@ if __name__ == "__main__":
 
     if args.test:
         with tempfile.TemporaryDirectory(dir="/tmp") as temp_dir:
-            build_static_template(f"{temp_dir}/messages.pot")
             build_schema_templates(temp_dir)
 
-            static_success = compare_files("translations", temp_dir, "messages.pot")
-            dynamic_success = check_schema_templates("translations", temp_dir)
+            success = check_schema_templates("translations", temp_dir)
 
-            if not all((dynamic_success, static_success)):
+            if not success:
                 logger.error(
                     "Translation templates are not up to date. Run make translation-templates to fix this"
                 )
@@ -137,5 +114,4 @@ if __name__ == "__main__":
             logger.debug("Translation templates are up to date.")
         sys.exit(0)
 
-    build_static_template("./translations/messages.pot")
     build_schema_templates(os.getcwd() + "/translations")
