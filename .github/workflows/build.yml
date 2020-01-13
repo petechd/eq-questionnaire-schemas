@@ -32,8 +32,8 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: data
-      - name: Pull validator
-        run: ./scripts/pull_validator.sh
+      - name: Pull and run validator
+        run: ./scripts/pull_and_run_validator.sh
       - name: Test schemas
         run: ./scripts/test_schemas.sh
   test-translation-templates:
