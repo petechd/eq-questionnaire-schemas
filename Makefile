@@ -4,13 +4,15 @@ clean:
 build-schemas:
 	pipenv run ./scripts/build_schemas.sh
 
-lint:
+build: build-schemas translate-schemas
+
+lint-jsonnet:
 	pipenv run ./scripts/lint_jsonnet.sh
 
 test-schemas:
 	pipenv run ./scripts/test_schemas.sh
 
-translate:
+translate-schemas:
 	pipenv run python -m scripts.translate_schemas
 
 translation-templates:
