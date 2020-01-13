@@ -77,7 +77,7 @@ def build_schema_templates(output_dir):
 
         logger.info("Building %s/%s", output_dir, template_file)
 
-        handle_extract_template(f"data/en/{schema_file}", output_dir)
+        handle_extract_template(f"schemas/en/{schema_file}", output_dir)
 
         logger.info("Built %s/%s", output_dir, template_file)
 
