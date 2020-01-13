@@ -23,8 +23,8 @@ jobs:
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: data
-          path: data
+          name: schemas
+          path: schemas
   translate-schemas:
     needs: build
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
       - name: Download built schemas
         uses: actions/download-artifact@v1
         with:
-          name: data
+          name: schemas
       - name: Cache virtualenv
         uses: actions/cache@v1
         with:
@@ -49,12 +49,12 @@ jobs:
       - name: Translation Templates
         run: make translation-templates
       - name: Translate Schemas
-        run: make translate
+        run: make translate-schemas
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: translated
-          path: data
+          name: schemas
+          path: schemas
   release:
     needs: translate-schemas
     runs-on: ubuntu-latest

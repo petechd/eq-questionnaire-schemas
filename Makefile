@@ -1,5 +1,5 @@
 clean:
-	rm -rf data
+	rm -rf schemas
 
 build-schemas:
 	pipenv run ./scripts/build_schemas.sh

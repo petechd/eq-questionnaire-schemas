@@ -91,7 +91,8 @@ requirements.txt
 .screenshots
 
 # Ignore built schemas
-data/
+schemas/
+translated-schemas/
 
 # Ignore any generated pages for the functional tests
 tests/functional/generated_pages

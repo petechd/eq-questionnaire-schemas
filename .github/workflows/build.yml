@@ -21,8 +21,8 @@ jobs:
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: data
-          path: data
+          name: schemas
+          path: schemas
   test-schemas:
     needs: build
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
       - name: Download built schemas
         uses: actions/download-artifact@v1
         with:
-          name: data
+          name: schemas
       - name: Pull and run validator
         run: ./scripts/pull_and_run_validator.sh
       - name: Test schemas
@@ -47,7 +47,7 @@ jobs:
       - name: Download built schemas
         uses: actions/download-artifact@v1
         with:
-          name: data
+          name: schemas
       - name: Cache virtualenv
         uses: actions/cache@v1
         with:
