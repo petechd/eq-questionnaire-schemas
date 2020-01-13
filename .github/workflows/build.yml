@@ -23,20 +23,7 @@ jobs:
         with:
           name: schemas
           path: schemas
-  test-schemas:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download built schemas
-        uses: actions/download-artifact@v1
-        with:
-          name: schemas
-      - name: Pull and run validator
-        run: ./scripts/pull_and_run_validator.sh
-      - name: Test schemas
-        run: ./scripts/test_schemas.sh
-  test-translation-templates:
+  test-translated-schemas:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -59,3 +46,20 @@ jobs:
         run: pipenv install --dev
       - name: Test Translation Templates
         run: make test-translation-templates
+      - name: Create Translation Templates
+        run: make translation-templates
+      - name: Translate Schemas
+        run: make translate-schemas
+  test-schemas:
+    needs: test-translated-schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download built schemas
+        uses: actions/download-artifact@v1
+        with:
+          name: schemas
+      - name: Pull and run validator
+        run: ./scripts/pull_and_run_validator.sh
+      - name: Test schemas
+        run: ./scripts/test_schemas.sh

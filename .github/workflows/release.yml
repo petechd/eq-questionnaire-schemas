@@ -53,7 +53,6 @@ jobs:
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: schemas
           path: schemas
   release:
     needs: translate-schemas
@@ -64,9 +63,9 @@ jobs:
       - name: Download built schemas and translations
         uses: actions/download-artifact@v1
         with:
-          name: translated
+          name: schemas
       - name: Zip Artifacts
-        run: mv translated schemas && zip -r schemas.zip schemas
+        run: zip -r schemas.zip schemas
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
