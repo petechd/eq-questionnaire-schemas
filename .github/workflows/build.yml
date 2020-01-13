@@ -50,6 +50,10 @@ jobs:
         run: make translation-templates
       - name: Translate Schemas
         run: make translate-schemas
+      - name: Archive schema artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          path: schemas
   test-schemas:
     needs: test-translated-schemas
     runs-on: ubuntu-latest
