@@ -59,3 +59,5 @@ jobs:
         run: pipenv install --dev
       - name: Test Translation Templates
         run: make test-translation-templates
+      - name: Test Translation
+        run: make translate-schemas
