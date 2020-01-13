@@ -46,8 +46,6 @@ jobs:
         run: pip install pipenv==2018.11.26
       - name: Install Virtual Environment
         run: pipenv install --dev
-      - name: Translation Templates
-        run: make translation-templates
       - name: Translate Schemas
         run: make translate-schemas
       - name: Archive schema artifacts
