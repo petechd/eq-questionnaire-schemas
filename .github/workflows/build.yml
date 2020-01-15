@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Jsonnet
+      - name: Install jsonnet
         run: |
           mkdir jsonnet
           curl -o jsonnet.tar.gz -L https://github.com/google/jsonnet/releases/download/v0.14.0/jsonnet-bin-v0.14.0-linux.tar.gz
@@ -35,14 +35,16 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: schemas
+      - name: Install pipenv
+        run: pip install pipenv==2018.11.26
       - name: Cache virtualenv
+        id: cache-virtualenv
         uses: actions/cache@v1
         with:
             path: ~/.local/share/virtualenvs/
             key: ${{ runner.os }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
-      - name: Install Pipenv
-        run: pip install pipenv==2018.11.26
-      - name: Install Virtual Environment
+      - name: Install virtual environment
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pipenv install --dev
       - name: Test Translation Templates
         run: make test-translation-templates
@@ -58,7 +60,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: schemas
-      - name: Install Pipenv
+      - name: Install pipenv
         run: pip install pipenv==2018.11.26
       - name: Cache virtualenv
         id: cache-virtualenv
@@ -66,7 +68,7 @@ jobs:
         with:
             path: ~/.local/share/virtualenvs/
             key: ${{ runner.os }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
-      - name: Install Virtual Environment
+      - name: Install virtualenv
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pipenv install --dev
       - name: Translate Schemas
@@ -74,7 +76,7 @@ jobs:
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: schemas
+          name: translated
           path: schemas
   test-schemas:
     needs: translate-schemas
@@ -84,7 +86,8 @@ jobs:
       - name: Download built schemas
         uses: actions/download-artifact@v1
         with:
-          name: schemas
+          name: translated
+      - run: mv translated schemas
       - name: Pull and run validator
         run: ./scripts/pull_and_run_validator.sh
       - name: Test schemas

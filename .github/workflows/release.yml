@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Jsonnet
+      - name: Install jsonnet
         run: |
           mkdir jsonnet
           curl -o jsonnet.tar.gz -L https://github.com/google/jsonnet/releases/download/v0.14.0/jsonnet-bin-v0.14.0-linux.tar.gz
@@ -45,15 +45,15 @@ jobs:
         with:
             path: ~/.local/share/virtualenvs/
             key: ${{ runner.os }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
-      - name: Install Virtual Environment
+      - name: Install virtualenv
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pipenv install --dev
-      - name: Translate Schemas
+      - name: Translate schemas
         run: make translate-schemas
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: schemas
+          name: translated
           path: schemas
   release:
     needs: translate-schemas
@@ -64,9 +64,9 @@ jobs:
       - name: Download built schemas and translations
         uses: actions/download-artifact@v1
         with:
-          name: schemas
-      - name: Zip Artifacts
-        run: zip -r schemas.zip schemas
+          name: translated
+      - name: Zip artifacts
+        run: mv translated schemas && zip -r schemas.zip schemas
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
