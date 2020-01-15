@@ -2,13 +2,18 @@
 
 A repo for building questionnaire schemas for eq-questionnaire-runner. We cache the virtualenv between workflow runs and separate jobs that have different environments.
 
-A number of commandline options exist in order to create/test schemas locally:
+A number of make targets exist in order to create/test schemas locally:
 
-- make build - Build schemas in English using jsonnet and translates them
-- make build-schemas - Build schemas in English using jsonnet
-- make test-schemas - Tests all built English schemas using a eq-schema-validator docker image
-- make test-translation-templates - Tests that translation templates are up to date
-- make translate-schemas - Translate english schemas
-- make translation-templates - Extracts empty templates for translation (.pot)
+| Build Command |       |
+| ------- |-------|
+| build | Build schemas using jsonnet and translate them |
+| build-schemas | Build schemas in english using jsonnet |
+| test-schemas | Test schemas using eq-schema-validator docker image |
 
-Validation is only currently run against english versions of schemas, due to changes neccessary to validator in order to accomodate characters from other languages.
+Build commands are only executed for english versions of schemas, due to changes neccessary to validator in order to accomodate characters from other languages.
+
+| Translation Command |       |
+| ------- |-------|
+| translate-schemas | Translate english schemas |
+| translation-templates | Extracts empty templates for translation (.pot) |
+| test-translation-templates | Tests that current translation templates are up to date |

@@ -28,7 +28,7 @@ done
 exit=0
 
 if [ $# -eq 0 ] || [ "$1" == "--local" ]; then
-    file_path="./schemas"
+    file_path="./schemas/en"
 else
     file_path="$1"
 fi
