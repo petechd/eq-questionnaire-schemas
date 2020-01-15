@@ -58,14 +58,16 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: schemas
+      - name: Install Pipenv
+        run: pip install pipenv==2018.11.26
       - name: Cache virtualenv
+        id: cache-virtualenv
         uses: actions/cache@v1
         with:
             path: ~/.local/share/virtualenvs/
             key: ${{ runner.os }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
-      - name: Install Pipenv
-        run: pip install pipenv==2018.11.26
       - name: Install Virtual Environment
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pipenv install --dev
       - name: Translate Schemas
         run: make translate-schemas
