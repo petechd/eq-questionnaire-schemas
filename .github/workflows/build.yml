@@ -72,6 +72,7 @@ jobs:
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
+          name: schemas
           path: schemas
   test-schemas:
     needs: translate-schemas
