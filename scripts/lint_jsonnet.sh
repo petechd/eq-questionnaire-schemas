@@ -10,7 +10,7 @@ while read file; do
     echo "'$file' failed Jsonnet format check. Run 'jsonnetfmt -i $file' to fix."
     (( failures+= 1 ))
   fi
-done < <(find ./data-source -name '*.jsonnet' -o -name '*.libsonnet')
+done < <(find ./source -name '*.jsonnet' -o -name '*.libsonnet')
 
 if [ "$failures" -gt 0 ]; then
   exit 1
