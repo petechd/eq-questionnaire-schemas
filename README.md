@@ -1,6 +1,6 @@
 # eq-questionnaire-schemas
 
-A repo for building questionnaire schemas for eq-questionnaire-runner. We cache the virtualenv between workflow runs and separate jobs that have different environments.
+A repo for building questionnaire schemas for eq-questionnaire-runner.
 
 A number of make targets exist in order to create/test schemas locally:
 

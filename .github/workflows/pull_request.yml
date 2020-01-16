@@ -15,9 +15,9 @@ jobs:
           tar -xzf jsonnet.tar.gz -C jsonnet
           echo "::add-path::jsonnet"
       - name: Lint jsonnet
-        run: ./scripts/lint_jsonnet.sh
+        run: make lint-jsonnet
       - name: Build schemas
-        run: ./scripts/build_schemas.sh
+        run: make build-schemas
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
@@ -46,7 +46,7 @@ jobs:
       - name: Install virtual environment
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pipenv install --dev
-      - name: Test Translation Templates
+      - name: Test translation templates
         run: make test-translation-templates
   test-schemas:
     needs: build
@@ -58,6 +58,6 @@ jobs:
         with:
           name: schemas
       - name: Pull and run validator
-        run: ./scripts/pull_and_run_validator.sh
+        run: make run-validator
       - name: Test schemas
-        run: ./scripts/test_schemas.sh
+        run: make test-schemas

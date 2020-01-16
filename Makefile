@@ -6,6 +6,9 @@ build-schemas:
 
 build: build-schemas translate-schemas
 
+run-validator:
+	pipenv run ./scripts/run_validator.sh
+
 lint-jsonnet:
 	pipenv run ./scripts/lint_jsonnet.sh
 

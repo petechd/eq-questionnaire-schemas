@@ -17,9 +17,9 @@ jobs:
           tar -xzf jsonnet.tar.gz -C jsonnet
           echo "::add-path::jsonnet"
       - name: Lint jsonnet
-        run: ./scripts/lint_jsonnet.sh
+        run: make lint-jsonnet
       - name: Build schemas
-        run: ./scripts/build_schemas.sh
+        run: make build-schemas
       - name: Archive schema artifacts
         uses: actions/upload-artifact@v1
         with:
@@ -37,7 +37,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: schemas
-      - name: Install Pipenv
+      - name: Install pipenv
         run: pip install pipenv==2018.11.26
       - name: Cache virtualenv
         id: cache-virtualenv
