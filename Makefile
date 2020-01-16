@@ -2,15 +2,15 @@ clean:
 	rm -rf schemas
 
 build-schemas:
-	pipenv run ./scripts/build_schemas.sh
+	./scripts/build_schemas.sh
 
 build: build-schemas translate-schemas
 
 run-validator:
-	pipenv run ./scripts/run_validator.sh
+	./scripts/run_validator.sh
 
 lint-jsonnet:
-	pipenv run ./scripts/lint_jsonnet.sh
+	./scripts/lint_jsonnet.sh
 
 test-schemas:
 	pipenv run ./scripts/test_schemas.sh
