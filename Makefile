@@ -13,7 +13,7 @@ lint-jsonnet:
 	./scripts/lint_jsonnet.sh
 
 test-schemas:
-	pipenv run ./scripts/test_schemas.sh
+	./scripts/test_schemas.sh
 
 translate-schemas:
 	pipenv run python -m scripts.translate_schemas
