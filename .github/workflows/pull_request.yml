@@ -51,13 +51,16 @@ jobs:
   test-schemas:
     needs: build
     runs-on: ubuntu-latest
+    services:
+      validator:
+        image: onsdigital/eq-schema-validator:v3
+        ports:
+          - 5001:5000
     steps:
       - uses: actions/checkout@v2
       - name: Download built schemas
         uses: actions/download-artifact@v1
         with:
           name: schemas
-      - name: Pull and run validator
-        run: make run-validator
       - name: Test schemas
         run: make test-schemas
