@@ -27,11 +27,7 @@ done
 
 exit=0
 
-if [ $# -eq 0 ] || [ "$1" == "--local" ]; then
-    file_path="./schemas/en"
-else
-    file_path="$1"
-fi
+file_path="./schemas/en"
 
 echo "--- Testing Schemas in $file_path ---"
 failed=0
