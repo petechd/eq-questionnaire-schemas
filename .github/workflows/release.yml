@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install jsonnet
+        run: |
+          mkdir jsonnet
+          curl -o jsonnet.tar.gz -L https://github.com/google/jsonnet/releases/download/v0.14.0/jsonnet-bin-v0.14.0-linux.tar.gz
+          tar -xzf jsonnet.tar.gz -C jsonnet
+          echo "::add-path::jsonnet"
+      - name: Lint jsonnet
+        run: make lint-jsonnet
+      - name: Build schemas
+        run: make build-schemas
+      - name: Archive schema artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: schemas
+          path: schemas
+  translate-schemas:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+      - name: Download built schemas
+        uses: actions/download-artifact@v1
+        with:
+          name: schemas
+      - name: Install pipenv
+        run: pip install pipenv==2018.11.26
+      - run: |
+          echo "::set-env name=PYTHON_VERSION::$(python -V 2>&1)"
+      - name: Cache virtualenv
+        id: cache-virtualenv
+        uses: actions/cache@v1
+        with:
+            path: ~/.local/share/virtualenvs/
+            key: ${{ runner.os }}-${{ env.PYTHON_VERSION }}-virtualenvs-${{ hashFiles('Pipfile.lock') }}
+      - name: Install virtualenv
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+        run: pipenv install --dev
+      - name: Translate schemas
+        run: make translate-schemas
+      - name: Archive schema artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: translated
+          path: schemas
+  release:
+    needs: translate-schemas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download built schemas and translations
+        uses: actions/download-artifact@v1
+        with:
+          name: translated
+      - name: Zip artifacts
+        run: mv translated schemas && zip -r schemas.zip schemas
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: schemas.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
