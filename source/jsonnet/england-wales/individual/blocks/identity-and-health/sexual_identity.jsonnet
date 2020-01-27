@@ -17,6 +17,7 @@ local question(title, label) = {
       id: 'sexual-identity-answer',
       mandatory: false,
       label: '',
+      voluntary: true,
       options: [
         {
           label: 'Straight or Heterosexual',

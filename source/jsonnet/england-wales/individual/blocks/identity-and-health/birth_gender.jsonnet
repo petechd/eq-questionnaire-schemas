@@ -17,6 +17,7 @@ local question(title, label) = {
       id: 'birth-gender-answer',
       mandatory: false,
       label: '',
+      voluntary: true,
       options: [
         {
           label: 'Yes',
