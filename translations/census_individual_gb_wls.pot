@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 10:40+0000\n"
+"POT-Creation-Date: 2020-02-05 11:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -664,10 +664,16 @@ msgstr ""
 msgid "Where do you mainly work?"
 msgstr ""
 
+msgid "Do you mainly work in the UK?"
+msgstr ""
+
 msgid "What is the address of your workplace?"
 msgstr ""
 
 msgid "What is the address of your depot?"
+msgstr ""
+
+msgid "Which country outside of the UK do you mainly work in?"
 msgstr ""
 
 msgid "Submit answers"
@@ -989,10 +995,18 @@ msgstr ""
 msgid "Where does <em>{person_name}</em> mainly work?"
 msgstr ""
 
+msgid "Does <em>{person_name}</em> mainly work in the UK?"
+msgstr ""
+
 msgid "What is the address of <em>{person_name_possessive}</em> workplace?"
 msgstr ""
 
 msgid "What is the address of <em>{person_name_possessive}</em> depot?"
+msgstr ""
+
+msgid ""
+"Which country outside of the UK does <em>{person_name}</em> mainly work "
+"in?"
 msgstr ""
 
 #. answer-id: accommodation-type-answer
@@ -4040,6 +4054,26 @@ msgctxt "Answer for: Where does <em>{person_name}</em> mainly work?"
 msgid "No fixed place"
 msgstr ""
 
+#. answer-id: mainly-work-in-uk-answer
+msgctxt "Answer for: Do you mainly work in the UK?"
+msgid "Yes"
+msgstr ""
+
+#. answer-id: mainly-work-in-uk-answer
+msgctxt "Answer for: Do you mainly work in the UK?"
+msgid "No"
+msgstr ""
+
+#. answer-id: mainly-work-in-uk-answer
+msgctxt "Answer for: Does <em>{person_name}</em> mainly work in the UK?"
+msgid "Yes"
+msgstr ""
+
+#. answer-id: mainly-work-in-uk-answer
+msgctxt "Answer for: Does <em>{person_name}</em> mainly work in the UK?"
+msgid "No"
+msgstr ""
+
 #. answer-id: employer-address-workplace-answer-building
 msgctxt "Answer for: What is the address of your workplace?"
 msgid "Address line 1"
@@ -4158,6 +4192,18 @@ msgctxt ""
 "Answer for: What is the address of <em>{person_name_possessive}</em> "
 "depot?"
 msgid "Postcode"
+msgstr ""
+
+#. answer-id: mainly-work-outside-uk-answer
+msgctxt "Answer for: Which country outside of the UK do you mainly work in?"
+msgid "Current name of country"
+msgstr ""
+
+#. answer-id: mainly-work-outside-uk-answer
+msgctxt ""
+"Answer for: Which country outside of the UK does <em>{person_name}</em> "
+"mainly work in?"
+msgid "Current name of country"
 msgstr ""
 
 #. answer-id: confirm-date-of-birth-answer
