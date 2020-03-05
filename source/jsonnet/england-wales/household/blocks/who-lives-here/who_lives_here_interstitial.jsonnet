@@ -7,7 +7,6 @@ local contentDescription = {
   ],
 };
 
-
 {
   type: 'Interstitial',
   id: 'who-lives-here-interstitial',
@@ -21,8 +20,12 @@ local contentDescription = {
         title: 'You will need to know',
         list: [
           'Names of the people living at this address including anyone temporarily away or who has been or intends to be in the UK for 3 months or more.',
-          'Names of visitors staying overnight at this address on 13 October 2019',
-          // This date is currently hard coded as validator currently does not allow placeholders within list object.
+          {
+            text: 'Names of visitors staying overnight at this address on {census_date}',
+            placeholders: [
+              placeholders.censusDate,
+            ],
+          },
         ],
       },
     ],
