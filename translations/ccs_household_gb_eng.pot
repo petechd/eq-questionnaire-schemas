@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-19 11:10+0000\n"
+"POT-Creation-Date: 2020-03-24 10:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,9 +126,6 @@ msgid "{person_name}"
 msgstr ""
 
 msgid "Add someone to this household"
-msgstr ""
-
-msgid "Add another visitor to this household"
 msgstr ""
 
 msgid "Add a visitor"
@@ -295,6 +292,9 @@ msgid "Visitors staying overnight on {census_date}"
 msgstr ""
 
 msgid "Are any of these people related to each other?"
+msgstr ""
+
+msgid "Householder members"
 msgstr ""
 
 msgid "Household accommodation"
