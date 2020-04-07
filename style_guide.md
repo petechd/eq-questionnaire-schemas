@@ -47,17 +47,64 @@
 - Use `local` syntax to prevent from being overridden or accessed externally.
 - Surround top-level function and class definitions with two blank lines.
 - Class names should follow the same convention as variable names.
-- Class close braces should be followed by semicolon.
+- Class close braces should be followed by a semicolon.
+- To define a class, use syntax:
+  ```
+  local newClass(parameter1, parameter2) = {
+    parameter1: parameter1,
+    parameter2: parameter2,
+  };
+  ```
+
+- Optional parameters of a class should be placed after required parameters and assigned default or `null` value.
+
+- Parameter declarations should be wrapped by putting one per line with two extra spaces of indentation, to differentiate from the method body.
+  ```
+  local newClass(
+      parameter1,
+      parameter2,
+      parameter3 = true) = { 
+    parameter1: parameter1,
+    ...
+  };
+  ```
+- Can also return dictionary to expose constants, static methods or related class constructors.
+
+### Methods
+- Use blank lines in methods to indicate logical sections.
+- Use same syntactic style as class definitions.
+- Methods fail to render with `:`, should always be defined with `::`.
+- Use parentheses `()` when using Methods that return single value, to enclose their bodies if they are multi-line, identically to how braces would be used.
+  ```
+  {
+    add:: function(number1, number2): (
+      number1 + number 2
+    ),
+  };
+  ```
+
+- When constructing classes or invoking methods, use named parameters, one per line, especially when they wrap beyond one line:
+  ```
+  // USE
+  exampleTemplate.newClass(
+    parameter1 = "string",
+    parameter2 = 0,
+  )
+
+  // INSTEAD OF
+  examoleTemplate.newClass("string", 0)
+  // It does not wrap
+  ```
 
 ### Imports
 
 - Import all dependencies at the top of the file. 
 - Names should be related to the imported file itself. It makes it easier checking files you depend on as the file expands.
-- Put on separate lines, followed by semicolon.
+- Put on separate lines, followed by a semicolon.
 
 ### File Structure
 
-- Because we don't use `templates` at the moment, Jsonnet files with no further inputs should end with the ".jsonnet" suffix.
+- Because we don't use `templates` at the moment and there are no further inputs, Jsonnet files end with the ".jsonnet" suffix.
 
 ### Documentation Style
 
