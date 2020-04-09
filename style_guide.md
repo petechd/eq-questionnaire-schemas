@@ -1,6 +1,14 @@
 ### Variables
 
 - Variable names should start with a lowercase character, subsequent words should be capitalised (`camelCase` styling).
+  ```
+  // CORRECT
+  local myExampleVariable = 1;
+  // camelCase
+
+  // INCORRECT
+  local my_exampe_variablle = 1;
+  ```
 - Enclose strings in single quotation marks for consistency.
 
 - Be aware of the reserved keywords:
