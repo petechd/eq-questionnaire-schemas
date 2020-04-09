@@ -4,7 +4,6 @@
   ```
   // CAMELCASE
   local myExampleVariable = 1;
-  // camelCase
 
   // INCORRECT
   local my_exampe_variablle = 1;
