@@ -2,7 +2,7 @@
 
 - Variable names should start with a lowercase character, subsequent words should be capitalised (`camelCase` styling).
   ```
-  // CORRECT
+  // CAMELCASE
   local myExampleVariable = 1;
   // camelCase
 
@@ -43,12 +43,11 @@
    - Immediately before a comma, semicolon, or colon.
    - Around an assignment (or other) operator to align vertically.
 
-- A single blank line appears:
-  - Within method bodies, as needed to create logical groupings of statements.
-  - Optionally before the first member or after the last member of a class or method.
-- To separate class definitions use two blank lines.
-- Excessive number of blank lines is discouraged.
-
+- Use single blank lines:
+  - When creating logical groupings of statements, inside methods bodies.
+  - Before the first member or after the last member of a class or method (optional).
+- It is discouraged to use excessive number of blank lines .
+- Definitions of classes are separated by two blank lines.
 
 ### Classes
 - Use `local` syntax to prevent from being overridden or accessed externally.
@@ -65,7 +64,7 @@
 
 - Optional parameters of a class should be placed after required parameters and assigned default or `null` value.
 
-- Parameter declarations should be wrapped by putting one per line with two extra spaces of indentation, to differentiate from the method body.
+- Parameter declarations should be wrapped by putting one each line and adding two extra spaces of indentation, to differentiate from the method body.
   ```
   local newClass(
       parameter1,
@@ -79,18 +78,18 @@
 
 ### Methods
 - Use blank lines in methods to indicate logical sections.
-- Use same syntactic style as class definitions.
-- Methods fail to render with `:`, should always be defined with `::`.
-- Use parentheses `()` when using Methods that return single value, to enclose their bodies if they are multi-line, identically to how braces would be used.
+- Same syntactic rules as definitions of a class.
+- Should always be defined with `::`, because it won't render with `:`,.
+- Use parentheses `()` when using Methods that return single value, to enclose body of a method if it's more than one line, braces are used in identical way.
   ```
   {
-    add:: function(number1, number2): (
-      number1 + number 2
+    add:: function(integerOne, integerTwo): (
+      integerOne + integerTwo
     ),
   };
   ```
 
-- When constructing classes or invoking methods, use named parameters, one per line, especially when they wrap beyond one line:
+- When building classes or calling methods, use named parameters, one per line, specifically when it's more than one line being wrapped:
   ```
   // USE
   exampleTemplate.newClass(
@@ -106,7 +105,7 @@
 ### Imports
 
 - Dependencies should be imported at the top of the file. 
-- Names should be related to the imported file itself. It makes it easier checking files you depend on as the file expands.
+- Names should be related to the imported file itself. It is easier checking dependencies as the file expands.
 - Put on separate lines, followed by a semicolon.
 
 ### File Structure
