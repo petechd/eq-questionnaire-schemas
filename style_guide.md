@@ -1,7 +1,6 @@
 ### Variables
 
-- Variable names should start with lowercase character, subsequent words are capitalised (camelCase styling).
-
+- Variable names should start with a lowercase character, subsequent words should be capitalised (`camelCase` styling).
 - Enclose strings in single quotation marks for consistency.
 
 - Be aware of the reserved keywords:
@@ -11,7 +10,7 @@
   
 - Use descriptive, self-evident naming.
 
-- When declaring variables use `local` instead of `::`, to prevent from being overridden or accessed externally.
+- When declaring variables use `local` instead of `::`. This prevents them from being overridden or accessed externally.
 
 ### Line Length
 
