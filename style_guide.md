@@ -46,7 +46,7 @@
 - A single blank line appears:
   - Within method bodies, as needed to create logical groupings of statements.
   - Optionally before the first member or after the last member of a class or method.
-- Use two blank lines to separate class definitions.
+- To separate class definitions use two blank lines.
 - Excessive number of blank lines is discouraged.
 
 
@@ -105,7 +105,7 @@
 
 ### Imports
 
-- Import all dependencies at the top of the file. 
+- Dependencies should be imported at the top of the file. 
 - Names should be related to the imported file itself. It makes it easier checking files you depend on as the file expands.
 - Put on separate lines, followed by a semicolon.
 
