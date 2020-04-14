@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-03 13:35+0100\n"
+"POT-Creation-Date: 2020-04-07 18:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -384,12 +384,17 @@ msgid ""
 "including equivalents, even if they are not using them now."
 msgstr ""
 
+msgid ""
+"This could be equivalent apprenticeships completed anywhere outside Wales"
+" and England"
+msgstr ""
+
 msgid "For example, trade, higher, foundation or modern"
 msgstr ""
 
 msgid ""
-"Include equivalent apprenticeships completed anywhere outside Wales and "
-"England"
+"This could be equivalent qualifications achieved anywhere outside Wales "
+"and England"
 msgstr ""
 
 msgid ""
@@ -401,8 +406,19 @@ msgid "Questions on other NVQs, A levels, GCSEs and equivalents will follow"
 msgstr ""
 
 msgid ""
-"Include equivalent qualifications achieved anywhere outside Wales and "
-"England"
+"This is any higher education qualification, achieved in the UK or another"
+" country, at level 4 or above."
+msgstr ""
+
+msgid ""
+"Students are usually aged 18 years or over when they begin these "
+"qualifications through a college or university."
+msgstr ""
+
+msgid ""
+"Examples include level 4 and 5 qualifications, bachelor’s degrees with or"
+" without honours, master’s degrees, PhD or other doctorates and "
+"professional qualifications, such as PGCE or chartership."
 msgstr ""
 
 msgid "For example, BTEC National, OND or ONC, City and Guilds Advanced Craft"
@@ -414,6 +430,24 @@ msgstr ""
 msgid "Questions on A levels, GCSEs and equivalents will follow"
 msgstr ""
 
+msgid ""
+"This is a National Vocational Qualification. NVQs are competency and "
+"skills-based qualifications that can be achieved in school, college or at"
+" work."
+msgstr ""
+
+msgid ""
+"If you have achieved similar qualifications, such as Scottish Vocational "
+"Qualifications or other vocational qualifications outside of the UK, "
+"choose the options you think are the closest match."
+msgstr ""
+
+msgid ""
+"If they have achieved similar qualifications, such as Scottish Vocational"
+" Qualifications or other vocational qualifications outside of the UK, "
+"choose the options they think are the closest match."
+msgstr ""
+
 msgid "Include 4 or more AS levels"
 msgstr ""
 
@@ -423,6 +457,33 @@ msgstr ""
 msgid "Questions on GCSEs and equivalents will follow"
 msgstr ""
 
+msgid ""
+"These are advanced-level, subject-based qualifications that are often "
+"needed to get a place at university. Students in Wales and England "
+"usually complete AS levels by the age of 17 years and A levels by the age"
+" of 18 years."
+msgstr ""
+
+msgid ""
+"If you have achieved similar qualifications outside of Wales and England,"
+" choose the options you think are the closest match."
+msgstr ""
+
+msgid "An International Baccalaureate diploma is equivalent to three A levels."
+msgstr ""
+
+msgid ""
+"These are advanced-level, subject-based qualifications that are often "
+"needed to get a place at university. Students in Wales and England "
+"usually complete AS levels by the age of 17 years and A levels by the age"
+" of 18 years"
+msgstr ""
+
+msgid ""
+"If they have achieved similar qualifications outside of Wales and "
+"England, choose the options they think are the closest match."
+msgstr ""
+
 msgid "Include 5 or more O level passes or CSEs grades 1"
 msgstr ""
 
@@ -430,6 +491,34 @@ msgid "Include any other O levels or CSEs at any grades"
 msgstr ""
 
 msgid "Skills for life, literacy, numeracy and language"
+msgstr ""
+
+msgid ""
+"This is a General Certificate of Secondary Education. GCSEs are subject "
+"based. Students in Wales and England usually complete GCSEs at school by "
+"the age of 16 years."
+msgstr ""
+
+msgid ""
+"If you have achieved CSEs, O levels or any other similar qualifications "
+"outside of Wales and England, choose the options you think are the "
+"closest match. "
+msgstr ""
+
+msgid ""
+"If they have achieved CSEs, O levels or any other similar qualifications "
+"outside of Wales and England, choose the options they think are the "
+"closest match."
+msgstr ""
+
+msgid ""
+"This could be any qualifications you have ever achieved, even if you are "
+"not using them now"
+msgstr ""
+
+msgid ""
+"This could be any qualifications they have ever achieved, even if they "
+"are not using them now"
 msgstr ""
 
 msgid ""
@@ -1601,6 +1690,9 @@ msgstr ""
 msgid "Have you achieved a qualification at degree level or above?"
 msgstr ""
 
+msgid "What we mean by “degree level or above”"
+msgstr ""
+
 msgid ""
 "Has <em>{person_name}</em> achieved a qualification at degree level or "
 "above?"
@@ -1609,10 +1701,16 @@ msgstr ""
 msgid "Have you achieved an NVQ or equivalent qualification?"
 msgstr ""
 
+msgid "What we mean by “NVQ”"
+msgstr ""
+
 msgid "Has <em>{person_name}</em> achieved an NVQ or equivalent qualification?"
 msgstr ""
 
 msgid "Have you achieved an AS, A level or equivalent qualification?"
+msgstr ""
+
+msgid "What we mean by “AS and A level”"
 msgstr ""
 
 msgid ""
@@ -1621,6 +1719,9 @@ msgid ""
 msgstr ""
 
 msgid "Have you achieved a GCSE or equivalent qualification?"
+msgstr ""
+
+msgid "What we mean by “GCSE”"
 msgstr ""
 
 msgid "Has <em>{person_name}</em> achieved a GCSE or equivalent qualification?"
