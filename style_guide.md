@@ -118,3 +118,5 @@
 ### Formatting
 
 - For basic style errors use `jsonnet fmt`.
+
+This jsonnet style guide is build upon ["Databricks Jsonnet Guide"](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide) by [yunzhangit](https://github.com/yunzhangit) and is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
