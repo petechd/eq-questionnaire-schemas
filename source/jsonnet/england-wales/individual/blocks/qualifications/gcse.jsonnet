@@ -9,8 +9,26 @@ local proxyTitle = {
   ],
 };
 
-local englandGuidanceTitle = 'Include equivalent qualifications achieved anywhere outside England and Wales';
-local walesGuidanceTitle = 'Include equivalent qualifications achieved anywhere outside Wales and England';
+local englandQuestionDescription = 'This could be equivalent qualifications achieved anywhere outside England and Wales';
+local walesQuestionDescription = 'This could be equivalent qualifications achieved anywhere outside Wales and England';
+
+
+local englandGuidanceProxy = [
+  'This is a General Certificate of Secondary Education. GCSEs are subject based. Students in England and Wales usually complete GCSEs at school by the age of 16 years.',
+  'If they have achieved CSEs, O levels or any other similar qualifications outside of England and Wales, choose the options they think are the closest match.',
+];
+local englandGuidanceNonProxy = [
+  'This is a General Certificate of Secondary Education. GCSEs are subject based. Students in England and Wales usually complete GCSEs at school by the age of 16 years.',
+  'If you have achieved CSEs, O levels or any other similar qualifications outside of England and Wales, choose the options you think are the closest match.',
+];
+local walesGuidanceProxy = [
+  'This is a General Certificate of Secondary Education. GCSEs are subject based. Students in Wales and England usually complete GCSEs at school by the age of 16 years.',
+  'If they have achieved CSEs, O levels or any other similar qualifications outside of Wales and England, choose the options they think are the closest match.',
+];
+local walesGuidanceNonProxy = [
+  'This is a General Certificate of Secondary Education. GCSEs are subject based. Students in Wales and England usually complete GCSEs at school by the age of 16 years.',
+  'If you have achieved CSEs, O levels or any other similar qualifications outside of Wales and England, choose the options you think are the closest match. ',
+];
 
 local walesOptions = [
   {
@@ -23,21 +41,28 @@ local walesOptions = [
   },
 ];
 
-local question(title, region_code) = (
-  local regionGuidanceTitle = if region_code == 'GB-WLS' then walesGuidanceTitle else englandGuidanceTitle;
+local guidance(region_code, isProxy) = (
+  if region_code == 'GB-WLS' then
+    if isProxy then walesGuidanceProxy else walesGuidanceNonProxy
+  else if isProxy then englandGuidanceProxy else englandGuidanceNonProxy
+);
+
+local question(region_code, isProxy) = (
+  local questionDescription = if region_code == 'GB-WLS' then walesQuestionDescription else englandQuestionDescription;
   local regionOptions = if region_code == 'GB-WLS' then walesOptions else [];
   {
     id: 'gcse-question',
-    title: title,
+    title: if isProxy then proxyTitle else nonProxyTitle,
+    description: questionDescription,
     type: 'MutuallyExclusive',
     mandatory: false,
-    guidance: {
+    definitions: [{
+      title: 'What we mean by “GCSE”',
       contents: [
-        {
-          description: regionGuidanceTitle,
-        },
+        { description: paragraph }
+        for paragraph in guidance(region_code, isProxy)
       ],
-    },
+    }],
     answers: [
       {
         id: 'gcse-answer',
@@ -81,11 +106,11 @@ function(region_code) {
   id: 'gcse',
   question_variants: [
     {
-      question: question(nonProxyTitle, region_code),
+      question: question(region_code, isProxy=false),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle, region_code),
+      question: question(region_code, isProxy=true),
       when: [rules.isProxy],
     },
   ],
