@@ -78,7 +78,6 @@
 ### Methods
 - Use blank lines in methods to indicate logical sections.
 - Same syntactic rules as definitions of a class.
-- Should always be defined with `::`, because it won't render with `:`.
 - Use parentheses `()` when using Methods that return single value, to enclose body of a method if it's more than one line, braces are used in identical way.
   ```
   {
