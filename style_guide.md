@@ -12,7 +12,7 @@ This style guide documents how we want to handle jsonnet files when building the
 ##Common Jsonnet
 
 ###Lib folders
-- Rules and placeholders are located in "lib" folder in corresponding schemas along with blocks folder.
+- Rules and placeholders are located in "lib" folder in corresponding schemas along with "blocks" folder.
 ###Rules and placeholders
 - These are separated into: 'common_rules', 'placeholders' and 'rules'. These files should end with ".libsonnet" suffix.
 ###Top level and extended
@@ -21,19 +21,25 @@ This style guide documents how we want to handle jsonnet files when building the
 
 ##Global variables
 ###Top level arguments
-- region code, census month year date.
+- For each schema created it is possible to pass variables, e.g.: "region_code" and "census_month_year_date", with different outputs being generated depending on their value.
 ###External variables 
-- External variables are being used. Example of that is "census date".
+- External variables are being used. Example of that is "census_month_year_date".
 ###Region Code
-- Why don't we treat region code like census date?
+- Depending on "region_code" variable's value, different structure of sections is generated (e.g. certain questions omitted).
 
 ##Blocks
 ###Structure
-- imports, variables, methods, block json.
+####Imports
+- They should be located at the top of the file.
+- Line length limit doesn't apply.
+####Variables
+- All the rules from ["Databricks style guide"](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide) should be followed.
+####Methods
+- Methods should be treated differently when used inline vs top level.
 ###Block json
-- block json can be a function if an argument is being passed.
+- Block json can be a function if an argument is being passed.
 ###Variants
-- Where variants exist, a question method should be used and be passed the variables that control the variant e.g. isProxy.
+- Where variants exist, a question method should be used and be passed the variables that control the variant, e.g. "isProxy".
 
 ##Shared blocks
 - Blocks from "individual" folder are used in both household and individual schema.
