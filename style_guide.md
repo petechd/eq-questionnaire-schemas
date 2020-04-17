@@ -1,5 +1,5 @@
 # Jsonnet Style Guide
-This style guide documents how we want to handle jsonnet files when building the schemas with consistency. For more general principles and styling rules go to ["Databricks repository"](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
+This style guide documents how we want to handle jsonnet files when building the schemas with consistency. For more general principles and styling rules go to [Databricks repository](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
 
 ## Folder structure
 
@@ -52,7 +52,7 @@ This style guide documents how we want to handle jsonnet files when building the
 
 #### Variables
 
-- All the rules from ["Databricks style guide"](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide) should be followed.
+- All the rules from [Databricks style guide](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide) should be followed.
 - Variables should be defined outside of methods.
 
 #### Methods
