@@ -34,6 +34,7 @@ This style guide documents how we want to handle jsonnet files when building the
 - Line length limit doesn't apply.
 ####Variables
 - All the rules from ["Databricks style guide"](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide) should be followed.
+- Variables should be defined outside of methods.
 ####Methods
 - Methods should be treated differently when used inline vs top level.
 ###Block json
