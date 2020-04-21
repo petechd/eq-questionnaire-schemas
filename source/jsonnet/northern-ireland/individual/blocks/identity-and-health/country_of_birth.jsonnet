@@ -16,7 +16,7 @@ local question(title) = {
   answers: [
     {
       id: 'country-of-birth-answer',
-      mandatory: true,
+      mandatory: false,
       type: 'Radio',
       options: [
         {
@@ -70,6 +70,25 @@ local question(title) = {
   routing_rules: [
     {
       goto: {
+        block: 'passports',
+        when: [
+          rules.under1,
+        ],
+      },
+    },
+    {
+      goto: {
+        block: 'past-usual-household-address',
+        when: [
+          {
+            id: 'country-of-birth-answer',
+            condition: 'not set',
+          },
+        ],
+      },
+    },
+    {
+      goto: {
         block: 'arrive-in-country',
         when: [
           {
@@ -78,12 +97,6 @@ local question(title) = {
             value: 'Northern Ireland',
           },
         ],
-      },
-    },
-    {
-      goto: {
-        block: 'passports',
-        when: [rules.under1],
       },
     },
     {
