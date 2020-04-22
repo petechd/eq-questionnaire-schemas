@@ -141,7 +141,7 @@ local question(isProxy) = {
 - In the questionTitle method we would return either of the two strings, based on the isProxy variable:
 ```
 local questionTitle(isProxy) = (
-  if isProxy == true than {
+  if isProxy == true then {
   text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
   placeholders: [
     placeholders.personNamePossessive,
