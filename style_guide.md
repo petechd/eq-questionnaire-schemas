@@ -153,7 +153,7 @@ local questionTitle(isProxy) = (
 - We would then do a similar thing for guidance with a questionGuidance method:
 ```
 local questionGuidance(isProxy) = (
-  if isProxy == true than 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
+  if isProxy == true then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
 );
 
 ```
