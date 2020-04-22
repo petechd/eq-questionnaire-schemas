@@ -138,7 +138,7 @@ local question(isProxy) = {
 };
 
 ```
-- In the questionTitle method we would return either of the two strings, based on the isProxy variable:
+- In the `questionTitle` method we would return either of the two strings, based on the `isProxy` variable:
 ```
 local questionTitle(isProxy) = (
   if isProxy == true then {
