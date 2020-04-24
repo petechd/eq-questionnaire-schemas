@@ -20,31 +20,28 @@ england-wales/
 northern-ireland/
 
 ```
-- England/Wales and Northern Ireland
+- Jsonnet source files are separated into two top-level folders - `england-wales` and `northern-ireland` 
+- The `lib/` folder contains common Jsonnet used across all questionnaire schemas
+  - The file extension should be `.libsonnet`
+  - Each file is grouped by function, currently `common_rules` and `placeholders`
+- Each questionnaire has it's own folder, within this:
+  - A top-level questionnaire definition Jsonnet file 
+  - A `lib/` folder holds common Jsonnet used across multiple blocks
+    - The file extension should be `.libsonnet`
+    - Each file here can extend common Jsonnet from the questionnaire level lib folder
+    - `rules.libsonnet` extends the top level `lib/common_rules.libsonnet`
+  - A `blocks` folder:
+    - Subdivided into section folders
+    - Within each section folder a Jsonnet file per block
+  
+We currently have the following questionniares:
 
-    - Jsonnet source files are separated into two folders: `england-wales` and `northern-ireland` with a number of sub-folders, each for corresponding schemas (e.g. `ccs`, `communal-establishment`, `household`, `individual`). These are divided into blocks in `blocks` folder.
+- `ccs`
+- `communal-establishment`
+- `household`
+- `individual`
 
-- Shared blocks
-
-    - Blocks from `individual` folder are used in both household and individual schema.
-
-- Top level Jsonnet files
-
-    - For each schema there are lists of block and placeholder imports.
-    - Schema structure is divided into sections, named after given schema and ending with `.jsonnet` suffix.
-
-- Lib folders
-
-    - Rules and placeholders are located in `lib` folder in corresponding schemas along with `blocks` folder.
-
-- Rules and placeholders
-
-    - These are separated into: `common_rules`, `placeholders` and `rules`. These files should end with `.libsonnet` suffix.
-
-- Top level and extended
-
-    - `common_rules` and `placeholders` are located in top-level "lib" folder.
-    - `rules` files for each schema are located in schema's sub-folder and extend some of the top-level `common_rules`.
+Blocks from the `individual` folder are also used from the `household` questionniare.
 
 ## Global variables
 
