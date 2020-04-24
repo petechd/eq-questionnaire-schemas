@@ -41,7 +41,7 @@ This style guide documents how we want to handle Jsonnet files when building the
     - `household`
     - `individual`
 
-- Blocks from the `individual` folder are also used from the `household` questionniare.
+- Blocks from the `individual` folder are also used from the `household` questionnaire.
 
 ## Global variables
 
@@ -227,7 +227,7 @@ This style guide documents how we want to handle Jsonnet files when building the
       ]};
     );  
     ```
-- We would then do a similar thing for guidance with a questionGuidance method:
+- We would then do a similar thing for guidance with a `questionGuidance` method:
     ```
     local questionGuidance(isProxy) = (
       if isProxy == true then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
