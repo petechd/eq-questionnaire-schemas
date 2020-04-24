@@ -5,20 +5,18 @@ This style guide documents how we want to handle Jsonnet files when building the
 - The following structure is used:
 ```
 england-wales/
-   ccs/
-      blocks/
-      lib/
-         rules.libsonnet
-   communal-establishment/
-   household/
-   individual/
    lib/
       common_rules.libsonnet
       placeholders.libsonnet
-   ccs_household.jsonnet
-   census_communal_establishment.jsonnet
-   census_household.jsonnet
-   census_individual.jsonnet
+   <questionnaire>/
+      <questionniare>.jsonnet
+      lib/
+         rules.libsonnet
+      blocks/
+         <section-one>/
+            <block-one>.jsonnet
+            <block-two>.jsonnet
+         <section-two>/
 northern-ireland/
 
 ```
