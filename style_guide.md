@@ -34,14 +34,14 @@ This style guide documents how we want to handle Jsonnet files when building the
     - Subdivided into section folders
     - Within each section folder a Jsonnet file per block
   
-We currently have the following questionnaires:
+- We currently have the following questionnaires:
 
-- `ccs`
-- `communal-establishment`
-- `household`
-- `individual`
+    - `ccs`
+    - `communal-establishment`
+    - `household`
+    - `individual`
 
-Blocks from the `individual` folder are also used from the `household` questionniare.
+- Blocks from the `individual` folder are also used from the `household` questionniare.
 
 ## Global variables
 
