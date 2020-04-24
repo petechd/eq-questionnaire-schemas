@@ -77,10 +77,18 @@ Blocks from the `individual` folder are also used from the `household` questionn
           },
         ],
         ```
+    
 
 - Region Code
     - Depending on its value, different structure of sections is generated (e.g. certain questions omitted).
     - Because it's an external variable now, it doesn't have to be passed to blocks and would align with how we use `census_date`.
+    - Example of how we determine if Welsh or English description is used:
+      ```
+      local radioOptions = (
+        if std.extVar('region_code') == 'GB-WLS' then 'Welsh, English, Scottish, Northern Irish or British'
+        else 'Welsh, English, Scottish, Northern Irish or British';
+      );
+      ```
 
 
 ## Blocks
