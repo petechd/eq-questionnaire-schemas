@@ -45,16 +45,15 @@ This style guide documents how we want to handle Jsonnet files when building the
 
 ## Global variables
 
+- Global variables are variables known at questionnaire launch. They don't change during completion of a questionnaire.
 - Top level arguments
     
     - Top-level arguments (`--tla-str`) are used to pass variables that are used in 5 blocks or less.
-    - For each schema created it is possible to pass variables, e.g.: `region_code` and `census_month_year_date`, with different outputs being generated depending on their value.
-    - These are defined in eq-questionnaire-runner, are known at questionnaire launch and won't change during the Census.
 
 - External variables
     
     - External variables (`--ext-str`) are used to pass variables that are used in a more than 5 blocks.
-    - External variables are being used. Example of that is `census_month_year_date` and `region_code`.
+    - External variables are being used. Example of that is `census_date` and `region_code`.
     - Example of how we use external variable in `answers`:
     
         ```
@@ -81,7 +80,6 @@ This style guide documents how we want to handle Jsonnet files when building the
 
 - Region Code
     - Depending on its value, different structure of sections is generated (e.g. certain questions omitted).
-    - Because it's an external variable now, it doesn't have to be passed to blocks and would align with how we use `census_date`.
     - Example of how we determine if Welsh or English description is used:
       ```
       local radioOptions = (
@@ -122,11 +120,35 @@ This style guide documents how we want to handle Jsonnet files when building the
       // Block JSON
     }
     ```
+### Block json
+
+- Block json can be a function if an argument is being passed:
+
+    ```
+    function(region_code, census_month_year_date) {
+      type: 'Question',
+      id: 'arrive-in-country',
+      question_variants: [
+        {
+          question: question(nonProxyTitle),
+          when: [rules.isNotProxy],
+        },
+        {
+          question: question(proxyTitle),
+          when: [rules.isProxy],
+        },
+      ],
+    } 
+    ```
+  
 ### Variants
 
-- Any time we want to vary the value of a property in a variant of question or content, a method needs to be defined that returns the appropriate variant.
-- Currently for variants we use mainly `isProxy` variable but also job and age related ones: `isEmployed`, `over16`, `over19`, `under19`.
-- Example of question(isProxy=true) and question(isProxy=false) variants:
+- When the value of a property needs to vary, a method should be defined that returns an appropriate value.
+
+#### Single value variants example
+
+- Most common approach in census schemas is to create variants based on a value of a single variable.
+- Example of this would be a `date of birth` question using `isProxy` variants:
     ```
     {
       type: 'Question',
@@ -143,33 +165,7 @@ This style guide documents how we want to handle Jsonnet files when building the
       ],
     }
     ```
-- Variants using combination of `isProxy` and `isEmployed`:
-
-    ```
-    {
-      type: 'Question',
-      id: 'business-name',
-      question_variants: [
-        {
-          question: question(isProxy=false, isEmployed=true),
-          when: [rules.isNotProxy, rules.isEmployed],
-        },
-        {
-          question: question(isProxy=true, isEmployed=true),
-          when: [rules.isProxy, rules.isEmployed],
-        },
-        {
-          question: question(isProxy=false, isEmployed=false),
-          when: [rules.isNotProxy, rules.isNotEmployed],
-        },
-        {
-          question: question(isProxy=true, isEmployed=false),
-          when: [rules.isProxy, rules.isNotEmployed],
-        },
-      ],
-    }
-    ```
-- In the question method, when we need to resolve title, we call a new questionTitle method, passing `isProxy`:
+- `Question` method passes `isProxy` variable to `local question`:
     ```
     local question(isProxy) = {
       title: questionTitle(isProxy)
@@ -195,7 +191,7 @@ This style guide documents how we want to handle Jsonnet files when building the
       ],
     };
     ```
-- In the `questionTitle` method we would return either of the two strings, based on the `isProxy` variable:
+- In the `local question`, when we need to resolve title, we call a new `questionTitle` method, again using `isProxy`:
     ```
     local questionTitle(isProxy) = (
       if isProxy == true then {
@@ -206,7 +202,73 @@ This style guide documents how we want to handle Jsonnet files when building the
       else 'What was your age on your last birthday?';
     );
     ```
-- Example of `questionTitle` with multiple variables:
+- We would return either of the two strings, based on the `isProxy` variable.
+- Same rules apply to other blocks with variants, e.g. for guidance with a `questionGuidance` method we would use:
+    ```
+    local questionGuidance(isProxy) = (
+      if isProxy == true then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
+    );
+    ```
+#### Multiple value variants example
+
+- There are occasions where more than one variable is used to create variants.
+- Example of this would be a `Question` block using combination of `isProxy` and `isEmployed` variables:
+
+    ```
+    {
+      type: 'Question',
+      id: 'business-name',
+      question_variants: [
+        {
+          question: question(isProxy=false, isEmployed=true),
+          when: [rules.isNotProxy, rules.isEmployed],
+        },
+        {
+          question: question(isProxy=true, isEmployed=true),
+          when: [rules.isProxy, rules.isEmployed],
+        },
+        {
+          question: question(isProxy=false, isEmployed=false),
+          when: [rules.isNotProxy, rules.isNotEmployed],
+        },
+        {
+          question: question(isProxy=true, isEmployed=false),
+          when: [rules.isProxy, rules.isNotEmployed],
+        },
+      ],
+    }
+    ```
+- Both variables are passed to `local question` used by `Question` method:
+    ```
+    local question(isProxy, isEmployed) = {
+      id: 'business-name-question',
+      title: questionTitle(isProxy, isEmployed),
+      description: description,
+      type: 'MutuallyExclusive',
+      mandatory: false,
+      answers: [
+        {
+          id: 'business-name-answer',
+          label: 'Organisation or business name',
+          max_length: 160,
+          mandatory: false,
+          type: 'TextField',
+        },
+        {
+          id: 'no-business-name-answer',
+          mandatory: false,
+          type: 'Checkbox',
+          options: [
+            {
+              label: option,
+              value: option,
+            },
+          ],
+        },
+      ],
+    };
+    ```
+- To resolve title, we call a new questionTitle method, passing `isProxy` and `isEmployed`:
     ```
     local questionTitle(isProxy, isEmployed) = (
       if isProxy == true && isEmployed == true then {
@@ -227,51 +289,7 @@ This style guide documents how we want to handle Jsonnet files when building the
       ]};
     );  
     ```
-- We would then do a similar thing for guidance with a `questionGuidance` method:
-    ```
-    local questionGuidance(isProxy) = (
-      if isProxy == true then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
-    );
-    ```
-### Block json
-
-- Block json can be a function if an argument is being passed:
-
-    ```
-    function(region_code, census_month_year_date) {
-      type: 'Question',
-      id: 'arrive-in-country',
-      question_variants: [
-        {
-          question: question(nonProxyTitle),
-          when: [rules.isNotProxy],
-        },
-        {
-          question: question(proxyTitle),
-          when: [rules.isProxy],
-        },
-      ],
-    } 
-    ```
-
-### Methods
-
-- We should define a method each time we’re changing a property.
-- Methods can be invoked at top-level or declared inline, depending on the intended use:
-
-    ```
-    // TOP-LEVEL
-        
-    local guidance(region_code, isProxy) = (
-      if region_code == 'GB-WLS' then
-        if isProxy then walesGuidanceProxy else walesGuidanceNonProxy
-      else if isProxy then englandGuidanceProxy else englandGuidanceNonProxy
-    );
-    
-    // INLINE (using region_code as top level argument, not external variable)
-    
-    local understandWelshBlock(region_code) = if region_code == 'GB-WLS' then [understand_welsh] else [];
-    ```
+- We would return one of the four strings, based on all the different variants.
 ### Routing
 
 - Default routing rule is used in every block, even if the succeeding block is the target. It makes the rules easier to understand:
