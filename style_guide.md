@@ -194,7 +194,7 @@ This style guide documents how we want to handle Jsonnet files when building the
 - In the `local question`, when we need to resolve title, we call a new `questionTitle` method, again using `isProxy`:
     ```
     local questionTitle(isProxy) = (
-      if isProxy == true then {
+      if isProxy then {
       text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
       placeholders: [
         placeholders.personNamePossessive,
@@ -206,7 +206,7 @@ This style guide documents how we want to handle Jsonnet files when building the
 - Same rules apply to other blocks with variants, e.g. for guidance with a `questionGuidance` method we would use:
     ```
     local questionGuidance(isProxy) = (
-      if isProxy == true then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
+      if isProxy then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
     );
     ```
 #### Multiple value variants example
@@ -268,28 +268,39 @@ This style guide documents how we want to handle Jsonnet files when building the
       ],
     };
     ```
-- To resolve title, we call a new questionTitle method, passing `isProxy` and `isEmployed`:
+- To resolve title, we call a new questionTitle method, passing `isProxy` and `isEmployed`, it returns one of string variants:
     ```
     local questionTitle(isProxy, isEmployed) = (
-      if isProxy == true && isEmployed == true then {
-      text: 'What is the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
-      placeholders: [
-        placeholders.personNamePossessive,
-      ]}
-      else if isProxy == false && isEmployed == true then {
-      text: 'What is the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
-      placeholders: [
-        placeholders.personNamePossessive,
-      ]}
-      else if isProxy == true && isEmployed == false then 'What was the main activity of your organisation, business or freelance work?'
-      else {
-      text: 'What was the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
-      placeholders: [
-        placeholders.personNamePossessive,
-      ]};
-    );  
+      if isEmployed then (
+        if isProxy then 
+          {
+            text: 'What is the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
+            placeholders: [
+              placeholders.personNamePossessive,
+            ]
+          }
+        else 'What is the main activity of your organisation, business or freelance work?'
+      ) else (
+        if isProxy then 
+          {
+            text: 'What was the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
+            placeholders: [
+              placeholders.personNamePossessive,
+            ]
+          }
+        else 'What was the main activity of your organisation, business or freelance work?';
+      )
+    );
     ```
-- We would return one of the four strings, based on all the different variants.
+- Same rules apply to other blocks, e.g. for guidance with a `questionGuidance` method we would use:
+    ```
+    local guidance(isProxy) = (
+      if std.extVar('region_code') == 'GB-WLS' then
+        if isProxy then
+          walesGuidanceProxy else walesGuidanceNonProxy
+      else if isProxy then englandGuidanceProxy else englandGuidanceNonProxy
+    );
+    ```
 ### Routing
 
 - Default routing rule is used in every block, even if the succeeding block is the target. It makes the rules easier to understand:
