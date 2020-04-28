@@ -115,21 +115,20 @@ This style guide documents how we want to handle Jsonnet files when building the
       // Block JSON
     }
     ```
-### Block json
 
 - Block json can be a function if an argument is being passed:
 
     ```
-    function(region_code, census_month_year_date) {
+    function(census_month_year_date) {
       type: 'Question',
       id: 'arrive-in-country',
       question_variants: [
         {
-          question: question(nonProxyTitle),
+          question: question(isProxy=false),
           when: [rules.isNotProxy],
         },
         {
-          question: question(proxyTitle),
+          question: question(isProxy=true),
           when: [rules.isProxy],
         },
       ],
@@ -141,9 +140,7 @@ This style guide documents how we want to handle Jsonnet files when building the
 - When the value of a property needs to vary, a method should be defined that returns an appropriate value.
 
 #### Single value variants example
-
-- Most common approach in census schemas is to create variants based on a value of a single variable.
-- Example of this would be a `date of birth` question using `isProxy` variants:
+- The most common approach in census schemas is to create variants based on a value of a single variable:
     ```
     {
       type: 'Question',
@@ -158,10 +155,8 @@ This style guide documents how we want to handle Jsonnet files when building the
           when: [rules.isProxy],
         },
       ],
-    }
-    ```
-- `Question` method passes `isProxy` variable to `local question`:
-    ```
+    };
+
     local question(isProxy) = {
       title: questionTitle(isProxy)
       id: 'confirm-date-of-birth',
@@ -185,29 +180,32 @@ This style guide documents how we want to handle Jsonnet files when building the
         },
       ],
     };
-    ```
-- In the `local question`, when we need to resolve title, we call a new `questionTitle` method, again using `isProxy`:
-    ```
+  
     local questionTitle(isProxy) = (
-      if isProxy then {
-      text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
-      placeholders: [
-        placeholders.personNamePossessive,
-      ]} 
+      if isProxy then 
+        {
+          text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
+          placeholders: [
+            placeholders.personNamePossessive,
+        ]} 
       else 'What was your age on your last birthday?';
     );
     ```
-- We would return either of the two strings, based on the `isProxy` variable.
+- The `isProxy` variable is passed to the `question` method.
+- The `question` method calls `questionTitle(isProxy)` to resolve the question title.
+- `questionTitle` returns the appropriate JSON for title.
+
 - Same rules apply to other blocks with variants, e.g. for guidance with a `questionGuidance` method we would use:
     ```
     local questionGuidance(isProxy) = (
-      if isProxy then 'Why we ask this question if they are retired or long-term sick or disabled' else 'Why we ask this question if you are retired or long-term sick or disabled';
+      if isProxy then 
+        'Why we ask this question if they are retired or long-term sick or disabled' 
+      else 'Why we ask this question if you are retired or long-term sick or disabled';
     );
     ```
 #### Multiple value variants example
 
-- There are occasions where more than one variable is used to create variants.
-- Example of this would be a `Question` block using combination of `isProxy` and `isEmployed` variables:
+- There are occasions where more than one variable is used to create variants. Example of this would be a `Question` block using combination of `isProxy` and `isEmployed` variables:
 
     ```
     {
@@ -231,10 +229,8 @@ This style guide documents how we want to handle Jsonnet files when building the
           when: [rules.isProxy, rules.isNotEmployed],
         },
       ],
-    }
-    ```
-- Both variables are passed to `local question` used by `Question` method:
-    ```
+    };
+  
     local question(isProxy, isEmployed) = {
       id: 'business-name-question',
       title: questionTitle(isProxy, isEmployed),
@@ -262,9 +258,7 @@ This style guide documents how we want to handle Jsonnet files when building the
         },
       ],
     };
-    ```
-- To resolve title, we call a new questionTitle method, passing `isProxy` and `isEmployed`, it returns one of string variants:
-    ```
+  
     local questionTitle(isProxy, isEmployed) = (
       if isEmployed then (
         if isProxy then 
@@ -287,6 +281,10 @@ This style guide documents how we want to handle Jsonnet files when building the
       )
     );
     ```
+- The `isProxy` and `isEmployed` variables are passed to the `question` method.
+- The `question` method calls `questionTitle(isProxy, isEmployed)` to resolve the question title.
+- `questionTitle` returns the appropriate JSON for title.
+
 - Same rules apply to other blocks, e.g. for guidance with a `questionGuidance` method we would use:
     ```
     local guidance(isProxy) = (
