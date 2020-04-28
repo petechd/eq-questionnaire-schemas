@@ -1,6 +1,5 @@
 # Jsonnet Style Guide
-This style guide documents how we want to handle Jsonnet files when building questionnaire schemas with consistency. For more general principles and styling rules, go to [Databricks repository](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
-
+This style guide documents how we want to handle Jsonnet files when building the schemas with consistency. For more general principles and styling rules, go to [Databricks repository](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
 ## Folder structure
 - The following structure is used:
 
@@ -21,7 +20,6 @@ This style guide documents how we want to handle Jsonnet files when building que
     northern-ireland/   
     ```
 - Jsonnet source files are separated into two top-level folders - `england-wales` and `northern-ireland` 
-- The `lib/` folder contains common Jsonnet used across all questionnaire schemas
   - The file extension should be `.libsonnet`
   - Each file is grouped by function, currently `common_rules` and `placeholders`
 - Each questionnaire has it's own folder, within this:
@@ -75,7 +73,7 @@ This style guide documents how we want to handle Jsonnet files when building que
 
 - Region Code
     - Depending on its value, different structure of sections is generated (e.g. certain questions omitted).
-    - Example of how we determine if Welsh or English description is used:
+    - Example of how we determine if a Wales or England description is used:
       ```
       local radioOptions = (
         if std.extVar('region_code') == 'GB-WLS' then 'Wales description'
