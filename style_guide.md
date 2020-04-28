@@ -46,15 +46,10 @@ This style guide documents how we want to handle Jsonnet files when building the
 ## Global variables
 
 - Global variables are variables known at questionnaire launch. They don't change during completion of a questionnaire.
-- Top level arguments
-    
-    - Top-level arguments (`--tla-str`) are used to pass variables that are used in 5 blocks or less.
-
-- External variables
-    
-    - External variables (`--ext-str`) are used to pass variables that are used in a more than 5 blocks.
-    - External variables are being used. Example of that is `census_date` and `region_code`.
-    - Example of how we use external variable in `answers`:
+- Top-level arguments (`--tla-str`) are used to pass variables that are used in 5 blocks or less.
+- External variables (`--ext-str`) are used to pass variables that are used in a more than 5 blocks.
+  - External variables are used for `census_date` and `region_code`.
+  - Example of an external variable in `answers`:
     
         ```
         answers: [
