@@ -96,6 +96,7 @@ This style guide documents how we want to handle Jsonnet files when building que
       // Block JSON
     }
     ```
+
   - Variants:
     ```
     // Imports
