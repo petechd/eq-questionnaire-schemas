@@ -78,8 +78,8 @@ This style guide documents how we want to handle Jsonnet files when building que
     - Example of how we determine if Welsh or English description is used:
       ```
       local radioOptions = (
-        if std.extVar('region_code') == 'GB-WLS' then 'Welsh, English, Scottish, Northern Irish or British'
-        else 'Welsh, English, Scottish, Northern Irish or British';
+        if std.extVar('region_code') == 'GB-WLS' then 'Wales description'
+        else 'England description';
       );
       ```
 
