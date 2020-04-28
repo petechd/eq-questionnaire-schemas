@@ -117,7 +117,7 @@ This style guide documents how we want to handle Jsonnet files when building que
     }
     ```
 
-- Block json can be a function if an argument is being passed:
+- Block JSON can be a function if an argument is being passed:
 
     ```
     function(census_month_year_date) {
