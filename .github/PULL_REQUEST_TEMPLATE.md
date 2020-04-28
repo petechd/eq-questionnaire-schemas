@@ -6,5 +6,4 @@ Describe the steps required to test the changes (include screenshots if appropri
 
 ### Checklist
 
-* [ ] New static content marked up for translation
-* [ ] Jsonnet files conform to the latest style guide
+* [ ] Jsonnet files conform to the latest [style guide](../style_guide.md)

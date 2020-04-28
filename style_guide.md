@@ -41,7 +41,7 @@ This style guide documents how we want to handle Jsonnet files when building que
     - `household`
     - `individual`
 
-- Blocks from the `individual` folder are also used from the `household` questionnaire.
+- Blocks from the `individual` folder are also used in the `household` questionnaire.
 
 ## Global variables
 
