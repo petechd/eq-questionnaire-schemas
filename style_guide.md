@@ -295,13 +295,4 @@ This style guide documents how we want to handle Jsonnet files when building the
     ```
 ### Routing
 
-- Default routing rule is used in every block, even if the succeeding block is the target. It makes the rules easier to understand:
-    ```
-    routing_rules: [
-      {
-        goto: {
-          block: 'main-employment-block',
-        },
-      },
-    ],
-    ```
+- Every block must have a routing rule, even if the succeeding block is the target. This makes the rules easier to understand.
