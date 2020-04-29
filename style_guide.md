@@ -84,7 +84,7 @@ This style guide documents how we want to handle Jsonnet files when building the
 
 ## Blocks
 
-- There are two distinct styles we use with block JSON:
+- There are two distinct styles of block JSON:
   - Simple (no variants):
   
     ```
