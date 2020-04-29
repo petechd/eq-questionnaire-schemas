@@ -39,7 +39,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
     - `household`
     - `individual`
 
-- Blocks from the `individual` folder are also used in the `household` questionnaire.
+- Blocks from the `individual` questionnaire are also used in the `household` questionnaire.
 
 ## Global variables
 
