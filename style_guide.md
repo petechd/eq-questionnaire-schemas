@@ -137,6 +137,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 ### Variants
 
 - When the value of a property needs to vary, a method should be defined that returns an appropriate value.
+- A method should not be used if the value is fixed i.e. doesn’t change based on a variable.
 
 #### Single value variants example
 - The most common approach in census schemas is to create variants based on a value of a single variable:
@@ -284,15 +285,6 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 - The `question` method calls `questionTitle(isProxy, isEmployed)` to resolve the question title.
 - `questionTitle` returns the appropriate JSON for title.
 
-- Same rules apply to other blocks, e.g. for guidance with a `questionGuidance` method we would use:
-    ```
-    local guidance(isProxy) = (
-      if std.extVar('region_code') == 'GB-WLS' then
-        if isProxy then
-          walesGuidanceProxy else walesGuidanceNonProxy
-      else if isProxy then englandGuidanceProxy else englandGuidanceNonProxy
-    );
-    ```
 ### Routing
 
 - Every block must have a routing rule, even if the succeeding block is the target. This makes the rules easier to understand.
