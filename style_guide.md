@@ -194,7 +194,7 @@ This style guide documents how we want to handle Jsonnet files when building the
 - The `question` method calls `questionTitle(isProxy)` to resolve the question title.
 - `questionTitle` returns the appropriate JSON for title.
 
-- Same rules apply to other blocks with variants, e.g. for guidance with a `questionGuidance` method we would use:
+- The same rules apply to other properties, e.g. question guidance would be:
     ```
     local questionGuidance(isProxy) = (
       if isProxy then 
