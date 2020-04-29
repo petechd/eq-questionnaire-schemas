@@ -204,32 +204,31 @@ This style guide documents how we want to handle Jsonnet files when building the
     ```
 #### Multiple value variants example
 
-- There are occasions where more than one variable is used to create variants. Example of this would be a `Question` block using combination of `isProxy` and `isEmployed` variables:
+- There are occasions where more than one variable is used to create variants. For example:
 
     ```
-    {
-      type: 'Question',
-      id: 'business-name',
-      question_variants: [
-        {
-          question: question(isProxy=false, isEmployed=true),
-          when: [rules.isNotProxy, rules.isEmployed],
-        },
-        {
-          question: question(isProxy=true, isEmployed=true),
-          when: [rules.isProxy, rules.isEmployed],
-        },
-        {
-          question: question(isProxy=false, isEmployed=false),
-          when: [rules.isNotProxy, rules.isNotEmployed],
-        },
-        {
-          question: question(isProxy=true, isEmployed=false),
-          when: [rules.isProxy, rules.isNotEmployed],
-        },
-      ],
-    };
-  
+    local questionTitle(isProxy, isEmployed) = (
+      if isEmployed then (
+        if isProxy then 
+          {
+            text: 'What is the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
+            placeholders: [
+              placeholders.personNamePossessive,
+            ]
+          }
+        else 'What is the main activity of your organisation, business or freelance work?'
+      ) else (
+        if isProxy then 
+          {
+            text: 'What was the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
+            placeholders: [
+              placeholders.personNamePossessive,
+            ]
+          }
+        else 'What was the main activity of your organisation, business or freelance work?';
+      )
+    );
+
     local question(isProxy, isEmployed) = {
       id: 'business-name-question',
       title: questionTitle(isProxy, isEmployed),
@@ -257,28 +256,29 @@ This style guide documents how we want to handle Jsonnet files when building the
         },
       ],
     };
-  
-    local questionTitle(isProxy, isEmployed) = (
-      if isEmployed then (
-        if isProxy then 
-          {
-            text: 'What is the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
-            placeholders: [
-              placeholders.personNamePossessive,
-            ]
-          }
-        else 'What is the main activity of your organisation, business or freelance work?'
-      ) else (
-        if isProxy then 
-          {
-            text: 'What was the main activity of <em>{person_name_possessive}</em> organisation, business or freelance work?',
-            placeholders: [
-              placeholders.personNamePossessive,
-            ]
-          }
-        else 'What was the main activity of your organisation, business or freelance work?';
-      )
-    );
+
+    {
+      type: 'Question',
+      id: 'business-name',
+      question_variants: [
+        {
+          question: question(isProxy=false, isEmployed=true),
+          when: [rules.isNotProxy, rules.isEmployed],
+        },
+        {
+          question: question(isProxy=true, isEmployed=true),
+          when: [rules.isProxy, rules.isEmployed],
+        },
+        {
+          question: question(isProxy=false, isEmployed=false),
+          when: [rules.isNotProxy, rules.isNotEmployed],
+        },
+        {
+          question: question(isProxy=true, isEmployed=false),
+          when: [rules.isProxy, rules.isNotEmployed],
+        },
+      ],
+    };
     ```
 - The `isProxy` and `isEmployed` variables are passed to the `question` method.
 - The `question` method calls `questionTitle(isProxy, isEmployed)` to resolve the question title.
