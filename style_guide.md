@@ -73,9 +73,9 @@ This style guide documents how we want to handle Jsonnet files when building the
 
 - Region Code
     - Depending on its value, different structure of sections is generated (e.g. certain questions omitted).
-    - Example of how we determine if a Wales or England description is used:
+    - Also used to vary content. For example:
       ```
-      local radioOptions = (
+      local radioOption = (
         if std.extVar('region_code') == 'GB-WLS' then 'Wales description'
         else 'England description';
       );
