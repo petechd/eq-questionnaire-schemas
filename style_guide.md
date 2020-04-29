@@ -141,20 +141,15 @@ This style guide documents how we want to handle Jsonnet files when building the
 #### Single value variants example
 - The most common approach in census schemas is to create variants based on a value of a single variable:
     ```
-    {
-      type: 'Question',
-      id: 'confirm_dob',
-      question_variants: [
+    local questionTitle(isProxy) = (
+      if isProxy then 
         {
-          question: question(isProxy=false),
-          when: [rules.isNotProxy],
-        },
-        {
-          question: question(isProxy=true),
-          when: [rules.isProxy],
-        },
-      ],
-    };
+          text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
+          placeholders: [
+            placeholders.personNamePossessive,
+        ]} 
+      else 'What was your age on your last birthday?';
+    );
 
     local question(isProxy) = {
       title: questionTitle(isProxy)
@@ -179,16 +174,21 @@ This style guide documents how we want to handle Jsonnet files when building the
         },
       ],
     };
-  
-    local questionTitle(isProxy) = (
-      if isProxy then 
+    
+    {
+      type: 'Question',
+      id: 'confirm_dob',
+      question_variants: [
         {
-          text: 'What was <em>{person_name_possessive}</em> age on their last birthday?',
-          placeholders: [
-            placeholders.personNamePossessive,
-        ]} 
-      else 'What was your age on your last birthday?';
-    );
+          question: question(isProxy=false),
+          when: [rules.isNotProxy],
+        },
+        {
+          question: question(isProxy=true),
+          when: [rules.isProxy],
+        },
+      ],
+    }
     ```
 - The `isProxy` variable is passed to the `question` method.
 - The `question` method calls `questionTitle(isProxy)` to resolve the question title.
