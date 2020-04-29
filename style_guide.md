@@ -72,7 +72,7 @@ This style guide documents how we want to handle Jsonnet files when building the
     
 
 - Region Code
-    - Depending on its value, different structure of sections is generated (e.g. certain questions omitted).
+    - Depending on its value, a different questionnaire structure can be generated. For example, extra questions in the Wales questionnaire.
     - Also used to vary content. For example:
       ```
       local radioOption = (
