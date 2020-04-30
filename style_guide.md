@@ -1,5 +1,5 @@
 # Jsonnet Style Guide
-This style guide documents how we build schemas consistently with Jsonnet. For more general principles and styling rules we follow the [Databricks Style Guide](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
+This style guide documents how we build schemas consistently with Jsonnet. For more general principles and styling rules, we follow the [Databricks Style Guide](https://github.com/databricks/jsonnet-style-guide#databricks-jsonnet-guide).
 ## Folder structure
 - The following structure is used:
 
