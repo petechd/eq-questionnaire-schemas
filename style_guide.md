@@ -74,7 +74,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 - Region Code
     - Depending on its value, a different questionnaire structure can be generated. For example, extra questions in the Wales questionnaire.
     - Also used to vary content. For example:
-      ```
+      ```javascript
       local radioOption = (
         if std.extVar('region_code') == 'GB-WLS' then 'Wales description'
         else 'England description';
@@ -87,7 +87,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 - There are two distinct styles of block JSON:
   - Simple (no variants):
   
-    ```
+    ```javascript
     // Imports
     
     {
@@ -96,7 +96,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
     ```
 
   - Variants:
-    ```
+    ```javascript
     // Imports
     
     // Variant helper methods
@@ -117,7 +117,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 
 - Block JSON can be a function if an argument is being passed:
 
-    ```
+    ```javascript
     function(census_month_year_date) {
       type: 'Question',
       id: 'arrive-in-country',
@@ -141,7 +141,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 
 #### Single value variants example
 - The most common approach in census schemas is to create variants based on a value of a single variable:
-    ```
+    ```javascript
     local questionTitle(isProxy) = (
       if isProxy then 
         {
@@ -196,7 +196,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 - `questionTitle` returns the appropriate JSON for title.
 
 - The same rules apply to other properties, e.g. question guidance would be:
-    ```
+    ```javascript
     local questionGuidance(isProxy) = (
       if isProxy then 
         'Why we ask this question if they are retired or long-term sick or disabled' 
@@ -207,7 +207,7 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
 
 - There are occasions where more than one variable is used to create variants. For example:
 
-    ```
+    ```javascript
     local questionTitle(isProxy, isEmployed) = (
       if isEmployed then (
         if isProxy then 
