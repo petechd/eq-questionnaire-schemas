@@ -49,27 +49,26 @@ This style guide documents how we build schemas consistently with Jsonnet. For m
   - External variables are used for `census_date` and `region_code`.
   - Example of an external variable in `answers`:
     
-        ```
-        answers: [
-          {
-            id: 'date-of-birth-answer',
-            mandatory: true,
-            type: 'Date',
-            minimum: {
-              value: std.extVar('census_date'),
-              offset_by: {
-                years: -115,
-                months: -2,
-                days: -20,
-              },
-            },
-            maximum: {
-              value: 'now',
+      ```javascript
+      answers: [
+        {
+          id: 'date-of-birth-answer',
+          mandatory: true,
+          type: 'Date',
+          minimum: {
+            value: std.extVar('census_date'),
+            offset_by: {
+              years: -115,
+              months: -2,
+              days: -20,
             },
           },
-        ],
-        ```
-    
+          maximum: {
+            value: 'now',
+          },
+        },
+      ],
+      ``` 
 
 - Region Code
     - Depending on its value, a different questionnaire structure can be generated. For example, extra questions in the Wales questionnaire.
