@@ -36,7 +36,7 @@ local questionWithExclusive = {
     ],
   },
   type: 'MutuallyExclusive',
-  mandatort: false,
+  mandatory: false,
   answers: [
     {
       id: 'number-of-visitors-in-establishment-answer',
