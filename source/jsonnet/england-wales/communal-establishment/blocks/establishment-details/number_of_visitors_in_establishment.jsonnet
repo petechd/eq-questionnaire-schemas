@@ -91,7 +91,7 @@ local questionWithExclusive = {
           condition: 'not set',
         },
         {
-          id: 'visitors-in-establishment-answer-exclusive',
+          id: 'visitors-in-establishment-exclusive',
           condition: 'not set',
         },
       ],
