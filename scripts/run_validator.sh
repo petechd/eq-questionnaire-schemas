@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 # https://github.com/ONSdigital/eq-questionnaire-validator/commit/ef9e236d8428a5661f7e7501323cc29bcf313e4c
 tag=mutually-exclusive-variants
 docker pull onsdigital/eq-questionnaire-validator:$tag
