@@ -1,9 +1,32 @@
 local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
-local question(title) = {
+local englandStrings = {
+  instruction: 'Ask the respondent to continue looking at <strong>Showcard 9E</strong> or show them the options below',
+  nonProxyTitle: 'Which one best describes your Black, Black British, Caribbean or African ethnic group or background?',
+  proxyTitle: {
+    text: 'Which one best describes <em>{person_name_possessive}</em> Black, Black British, Caribbean or African ethnic group or background?',
+    placeholders: [
+      placeholders.personNamePossessive,
+    ],
+  },
+};
+
+local walesStrings = {
+  instruction: 'Ask the respondent to continue looking at <strong>Showcard 9W</strong> or show them the options below',
+  nonProxyTitle: 'Which one best describes your Black, Black Welsh, Black British, Caribbean or African ethnic group or background?',
+  proxyTitle: {
+    text: 'Which one best describes <em>{person_name_possessive}</em> Black, Black Welsh, Black British, Caribbean or African ethnic group or background?',
+    placeholders: [
+      placeholders.personNamePossessive,
+    ],
+  },
+};
+
+local question(title, instruction) = {
   id: 'black-ethnic-group-question',
   title: title,
+  instruction: instruction,
   type: 'General',
   answers: [
     {
@@ -42,24 +65,18 @@ local question(title) = {
   ],
 };
 
-local nonProxyTitle = 'Which one best describes your Black, Black British, Caribbean or African ethnic group or background?';
-local proxyTitle = {
-  text: 'Which one best describes <em>{person_name_possessive}</em> Black, Black British, Caribbean or African ethnic group or background?',
-  placeholders: [
-    placeholders.personNamePossessive,
-  ],
-};
+function(region_code) {
+  local regionStrings = if region_code == 'GB-WLS' then walesStrings else englandStrings,
 
-{
   type: 'Question',
   id: 'black-ethnic-group',
   question_variants: [
     {
-      question: question(nonProxyTitle),
+      question: question(regionStrings.nonProxyTitle, regionStrings.instruction),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle),
+      question: question(regionStrings.proxyTitle, regionStrings.instruction),
       when: [rules.isProxy],
     },
   ],

@@ -9,14 +9,18 @@ local proxyTitle = {
   ],
 };
 
+local englandInstruction = 'Ask the respondent to continue looking at <strong>Showcard 9E</strong> or show them the options below';
+local walesInstruction = 'Ask the respondent to continue looking at <strong>Showcard 9W</strong> or show them the options below';
+
 local englandOption = 'English, Welsh, Scottish, Northern Irish or British';
 local walesOption = 'Welsh, English, Scottish, Northern Irish or British';
 
-local question(title, region_code) = (
+local question(title, instruction, region_code) = (
   local radioOptions = if region_code == 'GB-WLS' then walesOption else englandOption;
   {
     id: 'white-ethnic-group-question',
     title: title,
+    instruction: instruction,
     type: 'General',
     answers: [
       {
@@ -58,15 +62,17 @@ local question(title, region_code) = (
 );
 
 function(region_code) {
+  local instruction = if region_code == 'GB-WLS' then walesInstruction else englandInstruction,
+
   type: 'Question',
   id: 'white-ethnic-group',
   question_variants: [
     {
-      question: question(nonProxyTitle, region_code),
+      question: question(nonProxyTitle, instruction, region_code),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle, region_code),
+      question: question(proxyTitle, instruction, region_code),
       when: [rules.isProxy],
     },
   ],

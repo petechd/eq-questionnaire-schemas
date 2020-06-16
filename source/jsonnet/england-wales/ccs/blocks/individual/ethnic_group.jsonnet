@@ -9,15 +9,25 @@ local proxyTitle = {
   ],
 };
 
-local englandInstruction = 'Tell the respondent to turn to <strong>Showcard 9E</strong> or show them the answer options below';
-local walesInstruction = 'Tell the respondent to turn to <strong>Showcard 9W</strong> or show them the answer options below';
+local englandStrings = {
+  instruction: 'Tell the respondent to turn to <strong>Showcard 9E</strong> or show them the options below',
+  description: 'Includes British, Northern Irish, Irish, Gypsy, Irish Traveller, Roma or any other White background',
+  asianOption: 'Asian or Asian British',
+  blackOption: 'Black, Black British, Caribbean or African',
+};
 
+local walesStrings = {
+  instruction: 'Tell the respondent to turn to <strong>Showcard 9W</strong> or show them the options below',
+  description: 'Includes Welsh, British, Northern Irish, Irish, Gypsy, Irish Traveller, Roma or any other White background',
+  asianOption: 'Asian, Asian Welsh or Asian British',
+  blackOption: 'Black, Black Welsh, Black British, Caribbean or African',
+};
 
-local question(title, instruction) = (
+local question(title, regionStrings, region_code) = (
   {
     id: 'ethnic-group-question',
     title: title,
-    instruction: instruction,
+    instruction: regionStrings.instruction,
     type: 'General',
     answers: [
       {
@@ -27,22 +37,27 @@ local question(title, instruction) = (
           {
             label: 'White',
             value: 'White',
+            description: regionStrings.description,
           },
           {
             label: 'Mixed or Multiple ethnic groups',
             value: 'Mixed or Multiple ethnic groups',
+            description: 'Includes White and Black Caribbean, White and Black African, White and Asian or any other Mixed or Multiple',
           },
           {
-            label: 'Asian or Asian British',
-            value: 'Asian or Asian British',
+            label: regionStrings.asianOption,
+            value: regionStrings.asianOption,
+            description: 'Includes Indian, Pakistani, Bangladeshi, Chinese or any other Asian background',
           },
           {
-            label: 'Black, Black British, Caribbean or African',
-            value: 'Black, Black British, Caribbean or African',
+            label: regionStrings.blackOption,
+            value: regionStrings.blackOption,
+            description: 'Includes Black British, Caribbean, African or any other Black background',
           },
           {
             label: 'Other ethnic group',
             value: 'Other ethnic group',
+            description: 'Includes Arab or any other ethnic group',
           },
         ],
         type: 'Radio',
@@ -52,17 +67,17 @@ local question(title, instruction) = (
 );
 
 function(region_code) {
-  local instruction = if region_code == 'GB-WLS' then walesInstruction else englandInstruction,
+  local regionStrings = if region_code == 'GB-WLS' then walesStrings else englandStrings,
 
   type: 'Question',
   id: 'ethnic-group',
   question_variants: [
     {
-      question: question(nonProxyTitle, instruction),
+      question: question(nonProxyTitle, regionStrings, region_code),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle, instruction),
+      question: question(proxyTitle, regionStrings, region_code),
       when: [rules.isProxy],
     },
   ],
@@ -98,7 +113,7 @@ function(region_code) {
           {
             id: 'ethnic-group-answer',
             condition: 'equals',
-            value: 'Asian or Asian British',
+            value: regionStrings.asianOption,
           },
         ],
       },
@@ -110,7 +125,7 @@ function(region_code) {
           {
             id: 'ethnic-group-answer',
             condition: 'equals',
-            value: 'Black, Black British, Caribbean or African',
+            value: regionStrings.blackOption,
           },
         ],
       },
