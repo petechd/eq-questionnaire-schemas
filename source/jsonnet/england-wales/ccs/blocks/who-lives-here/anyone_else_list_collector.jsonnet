@@ -77,7 +77,7 @@ local editQuestion(questionTitle) = {
             title: 'Electronic Showcard',
             contents: [
               {
-                description: 'Include',
+                description: '<strong>Include</strong>',
               },
               {
                 list: [
@@ -130,10 +130,7 @@ local editQuestion(questionTitle) = {
             placeholders.censusDate,
           ],
         },
-        description: [
-          'Remember to only include those people who share cooking facilities <strong>and</strong> share a living room, <strong>or</strong> sitting room, <strong>or</strong> dining area.',
-          '<strong>Anyone else is not part of your household and will be interviewed separately.</strong>',
-        ],
+        description: ['Remember to only include those people who share cooking facilities <strong>and</strong> share a living room, <strong>or</strong> sitting room, <strong>or</strong> dining area.<p>Anyone else is not part of your household and will be interviewed separately.</p>'],
         instruction: ['Tell the respondent to turn to <strong>Showcard 2</strong> or show them the <strong>Electronic Showcard</strong> below'],
         definitions: [
           {
@@ -267,11 +264,7 @@ local editQuestion(questionTitle) = {
     question: {
       id: 'remove-question',
       type: 'General',
-      guidance: {
-        contents: [{
-          title: 'All of the data entered about this person will be deleted',
-        }],
-      },
+      warning: 'All of the information entered about this person will be deleted',
       title: {
         text: 'Are you sure you want to remove <em>{person_name}</em>?',
         placeholders: [
