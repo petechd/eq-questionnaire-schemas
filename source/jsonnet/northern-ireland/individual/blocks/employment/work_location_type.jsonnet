@@ -99,7 +99,7 @@ local proxyDescriptionDidWork = {
     },
     {
       goto: {
-        block: 'work-travel',
+        block: 'travel-to-work',
         when: [
           {
             id: 'work-location-type-answer',
