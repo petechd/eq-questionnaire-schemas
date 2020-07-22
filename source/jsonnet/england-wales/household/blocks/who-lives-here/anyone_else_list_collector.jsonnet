@@ -2,7 +2,7 @@ local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
 local questionTitle = {
-  text: 'Does anyone usually live at {household_address}?',
+  text: 'Does anyone live at {household_address}?',
   placeholders: [
     placeholders.address,
   ],
@@ -114,7 +114,7 @@ local editQuestion(questionTitle) = {
   for_list: 'household',
   add_answer: {
     id: 'anyone-else-answer',
-    value: 'Yes, I want to add {ordinality} person',
+    value: 'Yes, I need to add a person',
   },
   remove_answer: {
     id: 'remove-confirmation',
@@ -133,18 +133,12 @@ local editQuestion(questionTitle) = {
             type: 'Radio',
             options: [
               {
-                label: {
-                  text: 'Yes, I want to add {ordinality} person',
-                  placeholders: [
-                    placeholders.getListOrdinality('household'),
-                  ],
-                },
-                value: 'Yes, I want to add {ordinality} person',
+                label: 'Yes, I need to add a person',
+                value: 'Yes, I need to add a person',
               },
               {
-                label: 'No, no one usually lives here',
-                value: 'No, no one usually lives here',
-                description: 'For example, this is a second address or holiday home',
+                label: 'No, I do not need to add anyone',
+                value: 'No, I do not need to add anyone',
               },
             ],
           },
@@ -169,13 +163,8 @@ local editQuestion(questionTitle) = {
             type: 'Radio',
             options: [
               {
-                label: {
-                  text: 'Yes, I want to add {ordinality} person',
-                  placeholders: [
-                    placeholders.getListOrdinality('household'),
-                  ],
-                },
-                value: 'Yes, I want to add {ordinality} person',
+                label: 'Yes, I need to add a person',
+                value: 'Yes, I need to add a person',
               },
               {
                 label: 'No, I do not need to add anyone',
