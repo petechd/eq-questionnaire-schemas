@@ -23,7 +23,7 @@ local addQuestionTitle(listIsEmpty) = (
 );
 
 local addQuestion(listIsEmpty) = {
-  id: 'add-question',
+  id: 'people-living-here-add-person-question',
   type: 'General',
   title: addQuestionTitle(listIsEmpty),
   answers: [
@@ -73,7 +73,7 @@ local nonPrimaryEditPersonQuestionTitle = {
 };
 
 local editQuestion(questionTitle) = {
-  id: 'edit-question',
+  id: 'people-living-here-edit-person-question',
   type: 'General',
   title: questionTitle,
   answers: [
@@ -109,26 +109,26 @@ local editQuestion(questionTitle) = {
 };
 
 {
-  id: 'anyone-else-list-collector',
+  id: 'people-living-here',
   type: 'ListCollector',
   for_list: 'household',
   add_answer: {
-    id: 'anyone-else-answer',
+    id: 'people-living-here-answer',
     value: 'Yes, I want to add {ordinality} person',
   },
   remove_answer: {
-    id: 'remove-confirmation',
+    id: 'people-living-here-remove-person-answer',
     value: 'Yes, I want to remove this person',
   },
   question_variants: [
     {
       question: {
         type: 'General',
-        id: 'anyone-usually-live-at-question',
+        id: 'people-living-here-question',
         title: questionTitle,
         answers: [
           {
-            id: 'anyone-else-answer',
+            id: 'people-living-here-answer',
             mandatory: true,
             type: 'Radio',
             options: [
@@ -154,7 +154,7 @@ local editQuestion(questionTitle) = {
     },
     {
       question: {
-        id: 'anyone-usually-live-at-question',
+        id: 'people-living-here-question',
         type: 'General',
         title: {
           text: 'Does anyone else live at {household_address}?',
@@ -164,7 +164,7 @@ local editQuestion(questionTitle) = {
         },
         answers: [
           {
-            id: 'anyone-else-answer',
+            id: 'people-living-here-answer',
             mandatory: true,
             type: 'Radio',
             options: [
@@ -189,7 +189,7 @@ local editQuestion(questionTitle) = {
     },
   ],
   add_block: {
-    id: 'add-person',
+    id: 'people-living-here-add-person',
     type: 'ListAddQuestion',
     question_variants: [
       {
@@ -203,7 +203,7 @@ local editQuestion(questionTitle) = {
     ],
   },
   edit_block: {
-    id: 'edit-person',
+    id: 'people-living-here-edit-person',
     type: 'ListEditQuestion',
     question_variants: [
       {
@@ -217,10 +217,10 @@ local editQuestion(questionTitle) = {
     ],
   },
   remove_block: {
-    id: 'remove-person',
+    id: 'people-living-here-remove-person',
     type: 'ListRemoveQuestion',
     question: {
-      id: 'remove-question',
+      id: 'people-living-here-remove-person-question',
       type: 'General',
       title: {
         text: 'Are you sure you want to remove <em>{person_name}</em>?',
@@ -231,7 +231,7 @@ local editQuestion(questionTitle) = {
       warning: 'All of the information entered about this person will be deleted',
       answers: [
         {
-          id: 'remove-confirmation',
+          id: 'people-living-here-remove-person-answer',
           mandatory: true,
           type: 'Radio',
           options: [
