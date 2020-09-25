@@ -9,8 +9,8 @@ local in_education = import 'individual/blocks/personal-details/in_education.jso
 local marriage_or_civil_partnership_status = import 'individual/blocks/personal-details/marriage_or_civil_partnership_status.jsonnet';
 local name = import 'individual/blocks/personal-details/name.jsonnet';
 local sex = import 'individual/blocks/personal-details/sex.jsonnet';
-local term_time_address = import 'individual/blocks/personal-details/term_time_address.jsonnet';
-local term_time_country_outside_uk = import 'individual/blocks/personal-details/term_time_country_outside_uk.jsonnet';
+local term_time_address_country_outside_uk = import 'individual/blocks/personal-details/term_time_address_country_outside_uk.jsonnet';
+local term_time_address_uk = import 'individual/blocks/personal-details/term_time_address_uk.jsonnet';
 local term_time_location = import 'individual/blocks/personal-details/term_time_location.jsonnet';
 
 // Identity and Health
@@ -27,6 +27,7 @@ local frequency_irish = import 'individual/blocks/identity-and-health/frequency_
 local frequency_ulster_scots = import 'individual/blocks/identity-and-health/frequency_ulster_scots.jsonnet';
 local health = import 'individual/blocks/identity-and-health/health.jsonnet';
 local health_conditions_or_illnesses_limitations = import 'individual/blocks/identity-and-health/health_conditions_or_illnesses_limitations.jsonnet';
+local level_of_spoken_english = import 'individual/blocks/identity-and-health/level_of_spoken_english.jsonnet';
 local location_one_year_ago = import 'individual/blocks/identity-and-health/location_one_year_ago.jsonnet';
 local look_after_or_support_others = import 'individual/blocks/identity-and-health/look_after_or_support_others.jsonnet';
 local language = import 'individual/blocks/identity-and-health/main_language.jsonnet';
@@ -42,7 +43,6 @@ local physical_health_conditions = import 'individual/blocks/identity-and-health
 local religion = import 'individual/blocks/identity-and-health/religion.jsonnet';
 local religion_other = import 'individual/blocks/identity-and-health/religion_other.jsonnet';
 local sexual_orientation = import 'individual/blocks/identity-and-health/sexual_orientation.jsonnet';
-local speak_english = import 'individual/blocks/identity-and-health/speak_english.jsonnet';
 local understand_irish = import 'individual/blocks/identity-and-health/understand_irish.jsonnet';
 local understand_ulster_scots = import 'individual/blocks/identity-and-health/understand_ulster_scots.jsonnet';
 
@@ -131,8 +131,8 @@ function(region_code) {
             marriage_or_civil_partnership_status,
             in_education,
             term_time_location,
-            term_time_address,
-            term_time_country_outside_uk,
+            term_time_address_uk,
+            term_time_address_country_outside_uk,
           ],
         },
         {
@@ -159,7 +159,7 @@ function(region_code) {
             childhood_religion_other,
             language,
             other_main_language,
-            speak_english,
+            level_of_spoken_english,
             understand_irish,
             frequency_irish,
             understand_ulster_scots,

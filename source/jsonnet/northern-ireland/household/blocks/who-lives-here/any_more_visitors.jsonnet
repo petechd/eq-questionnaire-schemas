@@ -46,17 +46,17 @@ local removePersonQuestionTitle = {
 };
 
 {
-  id: 'visitor-list-collector',
+  id: 'any-more-visitors',
   type: 'ListCollector',
   for_list: 'visitors',
   page_title: 'Any more visitors',
   question: {
-    id: 'visitor-confirmation-question',
+    id: 'any-more-visitors-question',
     type: 'General',
     title: questionTitle,
     answers: [
       {
-        id: 'visitor-answer',
+        id: 'any-more-visitors-answer',
         mandatory: true,
         type: 'Radio',
         options: [
@@ -85,7 +85,7 @@ local removePersonQuestionTitle = {
     type: 'ListAddQuestion',
     page_title: 'Name of Visitor {list_item_position}',
     question: {
-      id: 'visitor-add-question',
+      id: 'add-visitor-question',
       type: 'General',
       title: addVisitorQuestionTitle,
       answers: [
@@ -128,7 +128,7 @@ local removePersonQuestionTitle = {
     type: 'ListEditQuestion',
     page_title: 'Change details for Visitor {list_item_position}',
     question: {
-      id: 'visitor-edit-question',
+      id: 'edit-visitor-question',
       type: 'General',
       title: editPersonQuestionTitle,
       answers: [
@@ -162,13 +162,13 @@ local removePersonQuestionTitle = {
     type: 'ListRemoveQuestion',
     page_title: 'Remove Visitor {list_item_position}',
     question: {
-      id: 'visitor-remove-question',
+      id: 'remove-visitor-question',
       type: 'General',
       title: removePersonQuestionTitle,
       warning: 'All of the information entered about this person will be deleted',
       answers: [
         {
-          id: 'visitor-remove-confirmation',
+          id: 'remove-visitor-answer',
           mandatory: true,
           type: 'Radio',
           options: [
