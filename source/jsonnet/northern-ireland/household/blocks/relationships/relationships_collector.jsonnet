@@ -1,66 +1,22 @@
+local transforms = import '../../../lib/transforms.libsonnet';
 local rules = import 'rules.libsonnet';
 
 local firstPersonPlaceholder = {
   placeholder: 'first_person_name',
-  transforms: [{
-    transform: 'concatenate_list',
-    arguments: {
-      list_to_concatenate: {
-        source: 'answers',
-        identifier: ['first-name', 'last-name'],
-        list_item_selector: {
-          source: 'location',
-          id: 'list_item_id',
-        },
-      },
-      delimiter: ' ',
-    },
-  }],
+  transforms: [transforms.listHasSameNameItems, transforms.formatPersonName],
 };
 
 local secondPersonPlaceholder = {
   placeholder: 'second_person_name',
-  transforms: [{
-    transform: 'concatenate_list',
-    arguments: {
-      list_to_concatenate: {
-        source: 'answers',
-        identifier: ['first-name', 'last-name'],
-        list_item_selector: {
-          source: 'location',
-          id: 'to_list_item_id',
-        },
-      },
-      delimiter: ' ',
-    },
-  }],
+  transforms: [transforms.listHasSameNameItems, transforms.formatSecondPersonName],
 };
 
 local firstPersonNamePossessivePlaceholder = {
   placeholder: 'first_person_name_possessive',
   transforms: [
-    {
-      transform: 'concatenate_list',
-      arguments: {
-        list_to_concatenate: {
-          source: 'answers',
-          identifier: ['first-name', 'last-name'],
-          list_item_selector: {
-            source: 'location',
-            id: 'list_item_id',
-          },
-        },
-        delimiter: ' ',
-      },
-    },
-    {
-      transform: 'format_possessive',
-      arguments: {
-        string_to_format: {
-          source: 'previous_transform',
-        },
-      },
-    },
+    transforms.listHasSameNameItems,
+    transforms.formatPersonName,
+    transforms.formatPossessive,
   ],
 };
 

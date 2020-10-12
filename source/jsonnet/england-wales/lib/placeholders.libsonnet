@@ -1,3 +1,5 @@
+local transforms = import 'transforms.libsonnet';
+
 local getListOrdinality(listName) = {
   placeholder: 'ordinality',
   transforms: [
@@ -95,53 +97,33 @@ local firstPersonNamePossessiveForList(listName) = {
       },
       transform: 'concatenate_list',
     },
-    {
-      transform: 'format_possessive',
-      arguments: {
-        string_to_format: {
-          source: 'previous_transform',
-        },
-      },
-    },
+    transforms.formatPossessive,
   ],
 };
 
+local personName(includeMiddleNames='') = (
+  if includeMiddleNames == 'if_is_same_name' then
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.isSameName, transforms.formatPersonName],
+    }
+  else if includeMiddleNames == 'if_same_names_exist' then
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.listHasSameNameItems, transforms.formatPersonName],
+    }
+  else
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.concatenateNames],
+    }
+);
+
 {
-  personName: {
-    placeholder: 'person_name',
-    transforms: [{
-      transform: 'concatenate_list',
-      arguments: {
-        list_to_concatenate: {
-          source: 'answers',
-          identifier: ['first-name', 'last-name'],
-        },
-        delimiter: ' ',
-      },
-    }],
-  },
+  personName: personName,
   personNamePossessive: {
     placeholder: 'person_name_possessive',
-    transforms: [
-      {
-        transform: 'concatenate_list',
-        arguments: {
-          list_to_concatenate: {
-            source: 'answers',
-            identifier: ['first-name', 'last-name'],
-          },
-          delimiter: ' ',
-        },
-      },
-      {
-        transform: 'format_possessive',
-        arguments: {
-          string_to_format: {
-            source: 'previous_transform',
-          },
-        },
-      },
-    ],
+    transforms: [transforms.concatenateNames, transforms.formatPossessive],
   },
   address: {
     placeholder: 'household_address',

@@ -1,7 +1,6 @@
 local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
-
 local questionTitle = {
   text_plural: {
     forms: {
@@ -22,7 +21,7 @@ local questionTitle = {
 local summaryTitlePersonName = {
   text: '{person_name}',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
@@ -36,21 +35,21 @@ local addPersonQuestionTitle = {
 local primaryEditPersonQuestionTitle = {
   text: 'Change details for {person_name} (You)',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
 local nonPrimaryEditPersonQuestionTitle = {
   text: 'Change details for {person_name}',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
 local removePersonQuestionTitle = {
   text: 'Are you sure you want to remove {person_name}?',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
@@ -96,6 +95,7 @@ local editQuestion(questionTitle) = {
   type: 'ListCollector',
   page_title: 'Any more people living here',
   for_list: 'household',
+  same_name_answer_ids: ['first-name', 'last-name'],
   question: {
     id: 'any-more-people-living-here-question',
     type: 'General',

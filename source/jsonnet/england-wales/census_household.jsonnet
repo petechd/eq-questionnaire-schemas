@@ -311,23 +311,7 @@ function(region_code, census_month_year_date) {
         for_list: 'household',
         title: {
           text: '{person_name}',
-          placeholders: [
-            {
-              placeholder: 'person_name',
-              transforms: [
-                {
-                  transform: 'concatenate_list',
-                  arguments: {
-                    list_to_concatenate: {
-                      source: 'answers',
-                      identifier: ['first-name', 'last-name'],
-                    },
-                    delimiter: ' ',
-                  },
-                },
-              ],
-            },
-          ],
+          placeholders: [placeholders.personName(includeMiddleNames='if_same_names_exist')],
         },
         page_title: 'Person {list_item_position}',
       },

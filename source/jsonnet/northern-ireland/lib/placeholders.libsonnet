@@ -1,3 +1,5 @@
+local transforms = import 'transforms.libsonnet';
+
 local getListOrdinality(listName) = {
   placeholder: 'ordinality',
   transforms: [
@@ -33,6 +35,7 @@ local getListCardinality(listName) = {
     },
   ],
 };
+
 local firstPersonNameForList(listName) = {
   placeholder: 'first_person',
   transforms: [
@@ -53,6 +56,7 @@ local firstPersonNameForList(listName) = {
     },
   ],
 };
+
 local firstPersonNamePossessiveForList(listName) = {
   placeholder: 'first_person_possessive',
   transforms: [
@@ -71,52 +75,33 @@ local firstPersonNamePossessiveForList(listName) = {
       },
       transform: 'concatenate_list',
     },
-    {
-      transform: 'format_possessive',
-      arguments: {
-        string_to_format: {
-          source: 'previous_transform',
-        },
-      },
-    },
+    transforms.formatPossessive,
   ],
 };
+
+local personName(includeMiddleNames='') = (
+  if includeMiddleNames == 'if_is_same_name' then
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.isSameName, transforms.formatPersonName],
+    }
+  else if includeMiddleNames == 'if_same_names_exist' then
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.listHasSameNameItems, transforms.formatPersonName],
+    }
+  else
+    {
+      placeholder: 'person_name',
+      transforms: [transforms.concatenateNames],
+    }
+);
+
 {
-  personName: {
-    placeholder: 'person_name',
-    transforms: [{
-      transform: 'concatenate_list',
-      arguments: {
-        list_to_concatenate: {
-          source: 'answers',
-          identifier: ['first-name', 'last-name'],
-        },
-        delimiter: ' ',
-      },
-    }],
-  },
+  personName: personName,
   personNamePossessive: {
     placeholder: 'person_name_possessive',
-    transforms: [
-      {
-        transform: 'concatenate_list',
-        arguments: {
-          list_to_concatenate: {
-            source: 'answers',
-            identifier: ['first-name', 'last-name'],
-          },
-          delimiter: ' ',
-        },
-      },
-      {
-        transform: 'format_possessive',
-        arguments: {
-          string_to_format: {
-            source: 'previous_transform',
-          },
-        },
-      },
-    ],
+    transforms: [transforms.concatenateNames, transforms.formatPossessive],
   },
   address: {
     placeholder: 'household_address',
@@ -136,67 +121,6 @@ local firstPersonNamePossessiveForList(listName) = {
         date_format: 'd MMMM yyyy',
       },
     }],
-  },
-  firstPersonPlaceholder: {
-    placeholder: 'first_person_name',
-    transforms: [{
-      transform: 'concatenate_list',
-      arguments: {
-        list_to_concatenate: {
-          source: 'answers',
-          identifier: ['first-name', 'last-name'],
-          list_item_selector: {
-            source: 'location',
-            id: 'list_item_id',
-          },
-        },
-        delimiter: ' ',
-      },
-    }],
-  },
-  secondPersonPlaceholder: {
-    placeholder: 'second_person_name',
-    transforms: [{
-      transform: 'concatenate_list',
-      arguments: {
-        list_to_concatenate: {
-          source: 'answers',
-          identifier: ['first-name', 'last-name'],
-          list_item_selector: {
-            source: 'location',
-            id: 'to_list_item_id',
-          },
-        },
-        delimiter: ' ',
-      },
-    }],
-  },
-  firstPersonNamePossessivePlaceholder: {
-    placeholder: 'first_person_name_possessive',
-    transforms: [
-      {
-        transform: 'concatenate_list',
-        arguments: {
-          list_to_concatenate: {
-            source: 'answers',
-            identifier: ['first-name', 'last-name'],
-            list_item_selector: {
-              source: 'location',
-              id: 'list_item_id',
-            },
-          },
-          delimiter: ' ',
-        },
-      },
-      {
-        transform: 'format_possessive',
-        arguments: {
-          string_to_format: {
-            source: 'previous_transform',
-          },
-        },
-      },
-    ],
   },
   getListOrdinality: getListOrdinality,
   getListCardinality: getListCardinality,

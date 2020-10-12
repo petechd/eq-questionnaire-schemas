@@ -21,14 +21,14 @@ local questionTitle = {
 local primaryEditPersonQuestionTitle = {
   text: 'Change details for <em>{person_name}</em> (You)',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
 local nonPrimaryEditPersonQuestionTitle = {
   text: 'Change details for <em>{person_name}</em>',
   placeholders: [
-    placeholders.personName,
+    placeholders.personName(includeMiddleNames='if_same_names_exist'),
   ],
 };
 
@@ -122,6 +122,7 @@ local addMorePeopleLivingHere(listIsEmpty) = {
   id: 'any-more-people-living-here',
   type: 'ListCollector',
   for_list: 'household',
+  same_name_answer_ids: ['first-name', 'last-name'],
   page_title: 'Any more people living here',
   question: {
     id: 'any-more-people-living-here-question',
@@ -242,7 +243,7 @@ local addMorePeopleLivingHere(listIsEmpty) = {
       title: {
         text: 'Are you sure you want to remove <em>{person_name}</em>?',
         placeholders: [
-          placeholders.personName,
+          placeholders.personName(includeMiddleNames='if_same_names_exist'),
         ],
       },
       warning: 'All of the information entered about this person will be deleted',
@@ -273,7 +274,7 @@ local addMorePeopleLivingHere(listIsEmpty) = {
     item_title: {
       text: '{person_name}',
       placeholders: [
-        placeholders.personName,
+        placeholders.personName(includeMiddleNames='if_same_names_exist'),
       ],
     },
   },
