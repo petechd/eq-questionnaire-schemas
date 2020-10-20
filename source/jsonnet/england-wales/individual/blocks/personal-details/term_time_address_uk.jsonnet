@@ -1,9 +1,18 @@
 local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
-local question(title) = {
+local questionTitle(isProxy) = (
+  if isProxy then {
+    text: 'What is the UK address where <em>{person_name}</em> usually stays during term time?',
+    placeholders: [
+      placeholders.personName(),
+    ],
+  } else 'What is the UK address where you usually stay during term time?'
+);
+
+local question(isProxy) = {
   id: 'term-time-address-uk-question',
-  title: title,
+  title: questionTitle(isProxy),
   type: 'General',
   answers: [
     {
@@ -18,13 +27,6 @@ local question(title) = {
   ],
 };
 
-local nonProxyTitle = 'Enter details of the UK address where you usually stay during term time.';
-local proxyTitle = {
-  text: 'Enter details of the UK address where <em>{person_name}</em> usually stays during term time.',
-  placeholders: [
-    placeholders.personName(),
-  ],
-};
 
 {
   type: 'Question',
@@ -32,11 +34,11 @@ local proxyTitle = {
   page_title: 'Term-time address UK',
   question_variants: [
     {
-      question: question(nonProxyTitle),
+      question: question(isProxy=false),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle),
+      question: question(isProxy=true),
       when: [rules.isProxy],
     },
   ],
