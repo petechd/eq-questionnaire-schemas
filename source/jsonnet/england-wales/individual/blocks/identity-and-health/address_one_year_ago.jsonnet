@@ -1,9 +1,19 @@
 local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
-local question(title) = {
+
+local questionTitle(isProxy) = (
+  if isProxy then {
+    text: 'What was <em>{person_name_possessive}</em> address one year ago?',
+    placeholders: [
+      placeholders.personNamePossessive,
+    ],
+  } else 'What was your address one year ago?'
+);
+
+local question(isProxy) = {
   id: 'address-one-year-ago-question',
-  title: title,
+  title: questionTitle(isProxy),
   type: 'General',
   answers: [
     {
@@ -19,13 +29,6 @@ local question(title) = {
   ],
 };
 
-local nonProxyTitle = 'Enter details of your address one year ago.';
-local proxyTitle = {
-  text: 'Enter details of <em>{person_name_possessive}</em> address one year ago.',
-  placeholders: [
-    placeholders.personNamePossessive,
-  ],
-};
 
 {
   type: 'Question',
@@ -33,11 +36,11 @@ local proxyTitle = {
   page_title: 'Address one year ago',
   question_variants: [
     {
-      question: question(nonProxyTitle),
+      question: question(isProxy=false),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle),
+      question: question(isProxy=true),
       when: [rules.isProxy],
     },
   ],

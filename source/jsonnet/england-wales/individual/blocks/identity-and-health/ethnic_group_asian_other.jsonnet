@@ -1,15 +1,24 @@
 local placeholders = import '../../../lib/placeholders.libsonnet';
 local rules = import 'rules.libsonnet';
 
-local question(title, region_code) = (
+local questionTitle(isProxy) = (
+  if isProxy then {
+    text: 'You selected “Any other Asian background”. How would <em>{person_name}</em> describe their Asian ethnic group or background?',
+    placeholders: [
+      placeholders.personName(),
+    ],
+  } else 'You selected “Any other Asian background”. How would you describe your Asian ethnic group or background?'
+);
+
+local question(isProxy) = (
   {
     id: 'other-asian-or-asian-british-ethnic-group-question',
-    title: title,
+    title: questionTitle(isProxy),
     type: 'General',
     answers: [
       {
         id: 'other-asian-or-asian-british-ethnic-group-answer',
-        label: 'Asian or Asian British ethnic group or background',
+        label: 'Asian ethnic group or background',
         description: 'Enter your own answer or select from suggestions',
         max_length: 100,
         mandatory: false,
@@ -20,25 +29,18 @@ local question(title, region_code) = (
   }
 );
 
-local nonProxyTitle = 'You selected “Any other Asian background”. How would you describe your Asian or Asian British ethnic group or background?';
-local proxyTitle = {
-  text: 'You selected “Any other Asian background”. How would <em>{person_name}</em> describe their Asian or Asian British ethnic group or background?',
-  placeholders: [
-    placeholders.personName(),
-  ],
-};
 
-function(region_code) {
+{
   type: 'Question',
   id: 'other-asian-or-asian-british-ethnic-group',
-  page_title: 'Other Asian or Asian British ethnic group or background',
+  page_title: 'Other Asian ethnic group or background',
   question_variants: [
     {
-      question: question(nonProxyTitle, region_code),
+      question: question(isProxy=false),
       when: [rules.isNotProxy],
     },
     {
-      question: question(proxyTitle, region_code),
+      question: question(isProxy=true),
       when: [rules.isProxy],
     },
   ],

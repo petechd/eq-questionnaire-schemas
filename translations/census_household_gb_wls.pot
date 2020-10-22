@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-16 13:21+0100\n"
+"POT-Creation-Date: 2020-10-20 17:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -329,7 +329,7 @@ msgid "Asian, Asian Welsh or Asian British ethnic group or background"
 msgstr ""
 
 #. Page title
-msgid "Other Asian or Asian British ethnic group or background"
+msgid "Other Asian ethnic group or background"
 msgstr ""
 
 #. Page title
@@ -1143,15 +1143,13 @@ msgid ""
 msgstr ""
 
 #. Question text
-msgid ""
-"Enter details of the other UK address where you stay for more than 30 "
-"days a year."
+msgid "What is the other UK address where you stay for more than 30 days a year?"
 msgstr ""
 
 #. Question text
 msgid ""
-"Enter details of the other UK address where <em>{person_name}</em> stays "
-"for more than 30 days a year."
+"What is the other UK address where <em>{person_name}</em> stays for more "
+"than 30 days a year?"
 msgstr ""
 
 #. Question text
@@ -1207,13 +1205,13 @@ msgid ""
 msgstr ""
 
 #. Question text
-msgid "Enter details of the UK address where you usually stay during term time."
+msgid "What is the UK address where you usually stay during term time?"
 msgstr ""
 
 #. Question text
 msgid ""
-"Enter details of the UK address where <em>{person_name}</em> usually "
-"stays during term time."
+"What is the UK address where <em>{person_name}</em> usually stays during "
+"term time?"
 msgstr ""
 
 #. Question text
@@ -1285,11 +1283,11 @@ msgid ""
 msgstr ""
 
 #. Question text
-msgid "Enter details of your address one year ago."
+msgid "What was your address one year ago?"
 msgstr ""
 
 #. Question text
-msgid "Enter details of <em>{person_name_possessive}</em> address one year ago."
+msgid "What was <em>{person_name_possessive}</em> address one year ago?"
 msgstr ""
 
 #. Question text
@@ -1390,14 +1388,13 @@ msgstr ""
 #. Question text
 msgid ""
 "You selected “Any other Asian background”. How would you describe your "
-"Asian or Asian British ethnic group or background?"
+"Asian ethnic group or background?"
 msgstr ""
 
 #. Question text
 msgid ""
 "You selected “Any other Asian background”. How would "
-"<em>{person_name}</em> describe their Asian or Asian British ethnic group"
-" or background?"
+"<em>{person_name}</em> describe their Asian ethnic group or background?"
 msgstr ""
 
 #. Question text
@@ -3649,16 +3646,15 @@ msgstr ""
 #. Answer
 msgctxt ""
 "You selected “Any other Asian background”. How would you describe your "
-"Asian or Asian British ethnic group or background?"
-msgid "Asian or Asian British ethnic group or background"
+"Asian ethnic group or background?"
+msgid "Asian ethnic group or background"
 msgstr ""
 
 #. Answer
 msgctxt ""
 "You selected “Any other Asian background”. How would "
-"<em>{person_name}</em> describe their Asian or Asian British ethnic group"
-" or background?"
-msgid "Asian or Asian British ethnic group or background"
+"<em>{person_name}</em> describe their Asian ethnic group or background?"
+msgid "Asian ethnic group or background"
 msgstr ""
 
 #. Answer
@@ -3961,19 +3957,18 @@ msgid "Enter your own answer or select from suggestions"
 msgstr ""
 
 #. Answer description
-#. For answer: Asian or Asian British ethnic group or background
+#. For answer: Asian ethnic group or background
 msgctxt ""
 "You selected “Any other Asian background”. How would you describe your "
-"Asian or Asian British ethnic group or background?"
+"Asian ethnic group or background?"
 msgid "Enter your own answer or select from suggestions"
 msgstr ""
 
 #. Answer description
-#. For answer: Asian or Asian British ethnic group or background
+#. For answer: Asian ethnic group or background
 msgctxt ""
 "You selected “Any other Asian background”. How would "
-"<em>{person_name}</em> describe their Asian or Asian British ethnic group"
-" or background?"
+"<em>{person_name}</em> describe their Asian ethnic group or background?"
 msgid "Enter your own answer or select from suggestions"
 msgstr ""
 
