@@ -64,8 +64,8 @@ local question(isProxy, isFirstPerson) = {
           value: 'Another address in the UK',
         },
         {
-          label: 'An address outside the UK',
-          value: 'An address outside the UK',
+          label: 'Another address outside the UK',
+          value: 'Another address outside the UK',
         },
       ],
       type: 'Radio',
@@ -127,7 +127,7 @@ local question(isProxy, isFirstPerson) = {
           {
             id: 'location-one-year-ago-answer',
             condition: 'equals',
-            value: 'An address outside the UK',
+            value: 'Another address outside the UK',
           },
         ],
       },
