@@ -69,7 +69,8 @@ local question(isProxy) = {
           },
           {
             id: 'mainly-work-in-uk-answer',
-            condition: 'not set',
+            condition: 'not equals',
+            value: 'No',
           },
         ],
       },
