@@ -1,6 +1,8 @@
 name: Release
 
-on: pull_request
+on:
+  release:
+    types: [published]
 
 jobs:
   add-schemas-to-release:
@@ -9,3 +11,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Zip artifacts
         run: zip -r schemas.zip schemas
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: schemas.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
