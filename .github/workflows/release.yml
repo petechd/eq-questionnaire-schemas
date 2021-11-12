@@ -3,7 +3,7 @@ name: Release
 on: pull_request
 
 jobs:
-  add-templates-to-release:
+  add-schemas-to-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
