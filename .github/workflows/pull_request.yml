@@ -8,9 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download schemas
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: schemas
+          path: ~/schemas/
       - run: make run-validator
       - name: Validate schemas
         run: make validate-schemas
