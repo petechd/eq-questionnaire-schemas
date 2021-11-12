@@ -1,23 +1,11 @@
 name: Release
 
-on:
-  release:
-    types: [published]
+on: pull_request
 
 jobs:
   add-templates-to-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download schemas
-        uses: actions/download-artifact@v2
-        with:
-          name: schemas
       - name: Zip artifacts
         run: zip -r schemas.zip schemas
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: schemas.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
