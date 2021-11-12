@@ -7,9 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install make
-        run: sudo apt-get update
-      - run: sudo apt-get install make
       - name: Spin up validator
         run: make run-validator
       - name: Validate schemas
