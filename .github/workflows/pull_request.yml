@@ -1,0 +1,16 @@
+name: PR
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-schemas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Spin up validator
+        run: make run-validator
+      - name: Validate schemas
+        run: make validate-schemas
