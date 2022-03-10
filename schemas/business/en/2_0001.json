@@ -17,8 +17,8 @@
   },
   "sections": [
     {
-      "id": "sectionb014070c-af35-45b5-a8f7-35b407665dd6",
-      "title": "Introduction",
+      "id": "section7929484a-ce81-45a3-a841-c457bf96dddc",
+      "show_on_hub": true,
       "groups": [
         {
           "id": "groupb014070c-af35-45b5-a8f7-35b407665dd6",
@@ -145,8 +145,10 @@
                   },
                   {
                     "list": [
-                      "all workers paid directly from this business&#x2019;s payroll(s)",
-                      "those temporarily absent but still being paid, for example on maternity leave"
+                      "full-time (over 30 hours a week) and part-time (30 hours or less) employees aged 16 years and over. This includes individuals working from home and those temporarily absent but still employed, for example those on parental leave or sick leave",
+                      "those on apprenticeships or training schemes",
+                      "directors and working owners paid via PAYE",
+                      "employees without guaranteed hours, for example those on zero hour contracts, who worked on this date"
                     ]
                   },
                   {
@@ -154,17 +156,18 @@
                   },
                   {
                     "list": [
-                      "agency workers paid directly from the agency payroll",
+                      "workers paid by an employment agency, for example consultants and contingent labour",
                       "voluntary workers",
                       "former employees only receiving a pension",
                       "self-employed workers",
-                      "working owners who are not paid via PAYE"
+                      "directors and working owners who are not paid via PAYE"
                     ]
+                  },
+                  {
+                    "description": "Explain your figures in the comments section to minimise us contacting you and to help us tell an industry story."
                   }
                 ],
-                "questions": [
-                  
-                ]
+                "questions": []
               },
               "secondary_content": [
                 {
@@ -184,13 +187,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "section7929484a-ce81-45a3-a841-c457bf96dddc",
-      "show_on_hub": true,
-      "groups": [
+        },
         {
           "id": "group7929484a-ce81-45a3-a841-c457bf96dddc",
           "blocks": [
@@ -226,9 +223,6 @@
                     }
                   ]
                 },
-                "description": [
-                  "<p>An employee is anyone aged 16 years or over that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>"
-                ],
                 "guidance": {
                   "contents": [
                     {
@@ -236,8 +230,10 @@
                     },
                     {
                       "list": [
-                        "all workers paid directly from this business&#x2019;s payroll(s)",
-                        "those temporarily absent but still being paid, for example on maternity leave"
+                        "full-time (over 30 hours a week) and part-time (30 hours or less) employees aged 16 years and over. This includes individuals working from home and those temporarily absent but still employed, for example those on parental leave or sick leave",
+                        "those on apprenticeships or training schemes",
+                        "directors and working owners paid via PAYE",
+                        "employees without guaranteed hours, for example those on zero hour contracts, who worked on this date"
                       ]
                     },
                     {
@@ -245,15 +241,28 @@
                     },
                     {
                       "list": [
-                        "agency workers paid directly from the agency payroll",
+                        "workers paid by an employment agency, for example consultants and contingent labour",
                         "voluntary workers",
                         "former employees only receiving a pension",
                         "self-employed workers",
-                        "working owners who are not paid via PAYE"
+                        "directors and working owners who are not paid via PAYE"
                       ]
                     }
                   ]
                 },
+                "definitions": [
+                  {
+                    "title": "What we mean by &#39;an employee&#39;",
+                    "contents": [
+                      {
+                        "description": "An employee is anyone aged 16 years or over who is working directly for the business."
+                      },
+                      {
+                        "description": "They may be paid direct from the business, from elsewhere within the wider group, or by an external payroll provider on behalf of the company.  If your business uses a central payroll to pay employees who work within the wider group, only include employees working directly for the business."
+                      }
+                    ]
+                  }
+                ],
                 "type": "General",
                 "answers": [
                   {
@@ -422,8 +431,10 @@
                     },
                     {
                       "list": [
-                        "all workers paid directly from this business&#x2019;s payroll(s)",
-                        "those temporarily absent but still being paid, for example on maternity leave"
+                        "full-time (over 30 hours a week) and part-time (30 hours or less) employees aged 16 years and over. This includes individuals working from home and those temporarily absent but still employed, for example those on parental leave or sick leave",
+                        "those on apprenticeships or training schemes",
+                        "directors and working owners paid via PAYE",
+                        "employees without guaranteed hours, for example those on zero hour contracts, who worked on this date"
                       ]
                     },
                     {
@@ -431,11 +442,11 @@
                     },
                     {
                       "list": [
-                        "agency workers paid directly from the agency payroll",
+                        "workers paid by an employment agency, for example consultants and contingent labour",
                         "voluntary workers",
                         "former employees only receiving a pension",
                         "self-employed workers",
-                        "working owners who are not paid via PAYE"
+                        "directors and working owners who are not paid via PAYE"
                       ]
                     }
                   ]
@@ -484,9 +495,7 @@
                       "answeraebbf9ea-ba26-4126-878d-eac5c8dc8ce5",
                       "answer6b20bead-e1ac-45ea-b7d3-eca6086308e7"
                     ],
-                    "conditions": [
-                      "equals"
-                    ],
+                    "conditions": ["equals"],
                     "value": 0
                   },
                   {
@@ -497,9 +506,7 @@
                       "answeraebbf9ea-ba26-4126-878d-eac5c8dc8ce5",
                       "answer6b20bead-e1ac-45ea-b7d3-eca6086308e7"
                     ],
-                    "conditions": [
-                      "equals"
-                    ],
+                    "conditions": ["equals"],
                     "answer_id": "answer4cb15193-c33d-4e25-8c69-5522219cdb21"
                   }
                 ]
