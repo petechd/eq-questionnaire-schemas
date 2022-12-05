@@ -1,4 +1,4 @@
-run-validator:
+run-validator: validator-check
 	./scripts/run_validator.sh
 
 lint:
