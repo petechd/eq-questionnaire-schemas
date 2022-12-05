@@ -12,6 +12,14 @@
     "options": {
       "required_completed_sections": [
         "section483919c0-b47e-4fc1-b5b3-c961870368a8",
+        "section940d0123-dd5f-4dec-bfaa-fcf84c7ca40d",
+        "section19991c0f-50a9-4b03-b0da-efeb9c5ca148",
+        "section3ab7c355-52fa-4478-9a7d-7faa20b3e06d",
+        "section739ac8ba-4133-4ca9-97e0-ece36eecdf42",
+        "sectionff3748b8-c9e4-4e4e-a2e1-54af1a44e3c1",
+        "section7d004aff-4139-4091-a78f-d1d215388a9c",
+        "sectionc718c7c3-257e-4bea-887b-4bc0ac471c38",
+        "sectionec78732e-4da0-4b2d-9411-2c6cdb4b6c0d",
         "section74bb197c-2353-4259-99e5-d21ab7c0db5e"
       ]
     }
@@ -370,7 +378,7 @@
                 "answers": [
                   {
                     "id": "answer3ca2007a-08e2-4723-8440-7e927a52aef9",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "9999",
                     "options": [
@@ -444,7 +452,7 @@
                     "label": "From",
                     "q_code": "11",
                     "minimum": {
-                      "value": "2020-01-01",
+                      "value": "2021-01-01",
                       "offset_by": {
                         "days": 0
                       }
@@ -457,7 +465,7 @@
                     "label": "To",
                     "q_code": "12",
                     "maximum": {
-                      "value": "2021-04-05",
+                      "value": "2022-04-05",
                       "offset_by": {
                         "days": 0
                       }
@@ -771,12 +779,12 @@
                     "type": "Radio",
                     "options": [
                       {
-                        "label": "Yes this is correct",
-                        "value": "Yes this is correct"
+                        "label": "Yes, this is correct",
+                        "value": "Yes, this is correct"
                       },
                       {
-                        "label": "No I need to change this",
-                        "value": "No I need to change this"
+                        "label": "No, I need to change this",
+                        "value": "No, I need to change this"
                       }
                     ]
                   }
@@ -791,7 +799,7 @@
                         "source": "answers",
                         "identifier": "answerconfirmation-answer-for-5e9943ec-5896-48dd-8427-12c14d80baca"
                       },
-                      "No I need to change this"
+                      "No, I need to change this"
                     ]
                   }
                 },
@@ -839,7 +847,7 @@
                 "answers": [
                   {
                     "id": "answer4772a4af-cc57-4973-a9ec-2684efcfd515",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "80",
                     "options": [
@@ -902,7 +910,7 @@
                 "answers": [
                   {
                     "id": "answer585a72f3-5297-43a0-adf9-9c9c1efd945b",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "81",
                     "options": [
@@ -976,7 +984,7 @@
               "question": {
                 "id": "question875190a3-16e4-4fe7-a689-2c4f7dd097d5",
                 "title": {
-                  "text": "What was {ru_name}&#39;s expenditure on employments costs for the period {from} to {to}?",
+                  "text": "What was {ru_name}&#39;s expenditure on employment costs for the period {from} to {to}?",
                   "placeholders": [
                     {
                       "placeholder": "ru_name",
@@ -1120,7 +1128,7 @@
                 "answers": [
                   {
                     "id": "answer27e41d8e-1a79-43e6-a313-ad020ddfa387",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total employment costs",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1168,7 +1176,7 @@
                 "answers": [
                   {
                     "id": "answer9e10ec5e-7edb-4d85-a9d0-344e62706783",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total expenditure on all other energy, materials, goods and services",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1295,7 +1303,7 @@
                 "answers": [
                   {
                     "id": "answerf0c34ba7-790e-417c-8d06-590e1a5e4421",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total expenditure on rates, duties, levies and taxes paid to the government",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1389,7 +1397,7 @@
                 "answers": [
                   {
                     "id": "answere7ea7417-ab82-4e64-93bf-f01757003f09",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total amounts received in subsidies from UK government sources and the EU",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1572,7 +1580,7 @@
                 "answers": [
                   {
                     "id": "answerfd187835-4974-497b-9fd3-f62ab5818379",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total value of all stocks at the beginning of the period",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1582,7 +1590,7 @@
                   },
                   {
                     "id": "answer5f0a8af9-8a26-4ad2-94a0-d842ca0ae2f4",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total value of all stocks at the end of the period",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1922,7 +1930,7 @@
                 "answers": [
                   {
                     "id": "answerc10f92bc-5884-46c3-a077-1e19338f4b51",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total value of acquisitions",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1932,7 +1940,7 @@
                   },
                   {
                     "id": "answer6bbbdbd6-f408-421c-9eeb-0dfd41739109",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total value of proceeds from disposals",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -1977,7 +1985,7 @@
               "question": {
                 "id": "questiona70993ac-b550-4370-bb7d-c5df471eb970",
                 "title": {
-                  "text": "What was {ru_name}&#39;s <em>income</em> from services provided to individuals, enterprises or other organisations based outside the UK, for the period {ref_p_start_date} to {ref_p_end_date}?",
+                  "text": "What was {ru_name}&#39;s <em>income</em> from services provided to individuals, enterprises or other organisations based outside the UK, for the period {from} to {to}?",
                   "placeholders": [
                     {
                       "placeholder": "ru_name",
@@ -1987,14 +1995,28 @@
                       }
                     },
                     {
-                      "placeholder": "ref_p_start_date",
+                      "placeholder": "from",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddfrom",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_start_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_start_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2002,14 +2024,28 @@
                       ]
                     },
                     {
-                      "placeholder": "ref_p_end_date",
+                      "placeholder": "to",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddto",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_end_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_end_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2067,7 +2103,7 @@
                 "answers": [
                   {
                     "id": "answerdc1031f2-b696-4c4d-ad40-669a30b25310",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total income from services provided to individuals, enterprises or other organisations",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -2084,17 +2120,31 @@
               "question": {
                 "id": "questionff833a8f-ab25-4a36-a4d2-6c994f764199",
                 "title": {
-                  "text": "What was your business&#39;s <em>expenditure</em> on services provided by individuals, enterprises or other organisations based outside the UK, for the period {ref_p_start_date} to {ref_p_end_date}?",
+                  "text": "What was your business&#39;s <em>expenditure</em> on services provided by individuals, enterprises or other organisations based outside the UK, for the period {from} to {to}?",
                   "placeholders": [
                     {
-                      "placeholder": "ref_p_start_date",
+                      "placeholder": "from",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddfrom",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_start_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_start_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2102,14 +2152,28 @@
                       ]
                     },
                     {
-                      "placeholder": "ref_p_end_date",
+                      "placeholder": "to",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddto",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_end_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_end_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2167,7 +2231,7 @@
                 "answers": [
                   {
                     "id": "answerf926827d-7e21-4173-b779-533855f72a2a",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Currency",
                     "label": "Total expenditure on services provided by individuals, enterprises or other organisations",
                     "description": "Enter a value to the nearest &#xA3;thousand (e.g. 56,000). Do not enter &#x2018;56&#x2019; for &#xA3;56,000.",
@@ -2257,7 +2321,7 @@
                 "answers": [
                   {
                     "id": "answer39cb7a4a-b442-4169-a275-42a7254e53f1",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "15",
                     "options": [
@@ -2325,7 +2389,7 @@
                 "answers": [
                   {
                     "id": "answer21283534-d358-4b82-bf88-a007656b0581",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "16",
                     "options": [
@@ -2404,7 +2468,7 @@
               "question": {
                 "id": "question7a465c7b-c889-495b-bc43-07df87294248",
                 "title": {
-                  "text": "Did {ru_name} carry out any in-house Research and Development for the period {ref_p_start_date} to {ref_p_end_date}, or intend to do so in the next?",
+                  "text": "Did {ru_name} carry out any in-house Research and Development for the period {from} to {to}, or intend to do so in the next reporting period?",
                   "placeholders": [
                     {
                       "placeholder": "ru_name",
@@ -2414,14 +2478,28 @@
                       }
                     },
                     {
-                      "placeholder": "ref_p_start_date",
+                      "placeholder": "from",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddfrom",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_start_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_start_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2429,14 +2507,28 @@
                       ]
                     },
                     {
-                      "placeholder": "ref_p_end_date",
+                      "placeholder": "to",
                       "transforms": [
+                        {
+                          "transform": "first_non_empty_item",
+                          "arguments": {
+                            "items": [
+                              {
+                                "identifier": "answer92c53562-4eda-438f-9767-1af697a3fcddto",
+                                "source": "answers"
+                              },
+                              {
+                                "source": "metadata",
+                                "identifier": "ref_p_end_date"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "transform": "format_date",
                           "arguments": {
                             "date_to_format": {
-                              "source": "metadata",
-                              "identifier": "ref_p_end_date"
+                              "source": "previous_transform"
                             },
                             "date_format": "d MMMM yyyy"
                           }
@@ -2484,7 +2576,7 @@
                 "answers": [
                   {
                     "id": "answerba87ec7b-159e-47b7-b331-fc2bf49b3d4e",
-                    "mandatory": false,
+                    "mandatory": true,
                     "type": "Radio",
                     "q_code": "9",
                     "options": [
