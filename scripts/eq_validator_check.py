@@ -16,7 +16,9 @@ try:
             version = next(f).strip()
         latest_tag = response.json()[0]["tag_name"]
         if latest_tag != version:
-            logger.error("eq-questionnaire-validator is out of date.")
+            logger.error(
+                "eq-questionnaire-validator is out of date. Update version using the .schema-validator-version file"
+            )
             sys.exit(1)
     else:
         logger.error("Can't check eq-questionnaire-validator version")
