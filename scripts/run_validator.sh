@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-tag=v3.10.0
+tag=`cat .schema-validator-version`
 TAG=${tag} docker-compose -f docker-compose-schema-validator.yml up -d

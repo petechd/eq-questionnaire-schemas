@@ -1,11 +1,14 @@
-run-validator:
+run-validator: validator-check
 	./scripts/run_validator.sh
-
-validate-schemas:
-	./scripts/validate_schemas.sh
 
 lint:
 	poetry run ./scripts/run_lint_python.sh
+
+validator-check:
+	poetry run python -m scripts.eq_validator_check
+
+validate-schemas: validator-check
+	./scripts/validate_schemas.sh
 
 translations-check:
 	poetry run python -m scripts.eq_translations_check
