@@ -411,7 +411,7 @@
                     "label": "From",
                     "q_code": "0011",
                     "minimum": {
-                      "value": "2022-04-06",
+                      "value": "2021-04-06",
                       "offset_by": {
                         "days": 0
                       }
@@ -432,6 +432,9 @@
                   }
                 ],
                 "period_limits": {
+                  "minimum": {
+                    "months": 0
+                  },
                   "maximum": {
                     "months": 12
                   }
