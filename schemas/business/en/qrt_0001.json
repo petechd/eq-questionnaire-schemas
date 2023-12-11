@@ -44,12 +44,12 @@
       "code": "9991"
     },
     {
-      "answer_id": "answerbf11b2d4-3f36-4466-8e59-4f8bc3cce4c8",
-      "code": "147"
-    },
-    {
       "answer_id": "add-another-additional-new-sites",
       "code": "9990"
+    },
+    {
+      "answer_id": "answerbf11b2d4-3f36-4466-8e59-4f8bc3cce4c8",
+      "code": "147"
     },
     {
       "answer_id": "answer27f27859-fc11-4577-b9bb-745407356498",
@@ -259,7 +259,7 @@
                     "question": "Local unit list",
                     "contents": [
                       {
-                        "description": "In this section you will be presented with your business&#39;s local units that this return covers. You will be asked to check the list for any errors and provide details of any changes."
+                        "description": "In this section you will be presented with your business&#39;s local units that this return covers. You will be asked to check the list for any errors and provide details of any changes. If a unit is no longer covered by this return, include the date that it ceased production."
                       }
                     ]
                   },
@@ -328,7 +328,7 @@
                     "description": "You will be asked to provide the details of production for concrete roofing tiles."
                   },
                   {
-                    "description": "<strong>This section includes:</strong>"
+                    "description": "<strong>This includes:</strong>"
                   },
                   {
                     "list": [
@@ -345,10 +345,10 @@
               }
             },
             {
-              "id": "roofing-tiles-manufactured",
+              "id": "concrete-roofing-tiles-manufactured",
               "type": "Question",
               "question": {
-                "id": "questionroofing-tiles-manufactured",
+                "id": "questionconcrete-roofing-tiles-manufactured",
                 "title": {
                   "text": "For the period {ref_p_start_date} to {ref_p_end_date}, how many square metres of concrete roofing tiles were manufactured by {ru_name}?",
                   "placeholders": [
@@ -418,7 +418,7 @@
                   }
                 ]
               },
-              "page_title": "Roofing tiles manufactured"
+              "page_title": "Concrete roofing tiles manufactured"
             },
             {
               "id": "concrete-roofing-tiles-delivered",
@@ -542,7 +542,7 @@
                 "title": "Local unit list",
                 "contents": [
                   {
-                    "description": "In this section you will presented with your business&#39;s local units that this return covers. You will be asked to check this list for any errors and provide details of any changes."
+                    "description": "In this section you will presented with your business&#39;s local units that this return covers. You will be asked to check this list for any errors and provide details of any changes. If a unit is no longer covered by this return, include the date that it ceased production."
                   }
                 ]
               }
@@ -560,7 +560,7 @@
                     },
                     {
                       "list": [
-                        "if the unit is no longer appropriate, with the date that it ceased production"
+                        "if the unit is no longer covered by this return, with the date that it ceased production"
                       ]
                     },
                     {
@@ -599,19 +599,17 @@
                             "placeholder": "localunits_address",
                             "transforms": [
                               {
+                                "transform": "concatenate_list",
                                 "arguments": {
-                                  "delimiter": ", ",
                                   "list_to_concatenate": [
                                     {
                                       "source": "supplementary_data",
                                       "identifier": "local-units",
-                                      "selectors": [
-                                        "address"
-                                      ]
+                                      "selectors": ["address"]
                                     }
-                                  ]
-                                },
-                                "transform": "concatenate_list"
+                                  ],
+                                  "delimiter": ", "
+                                }
                               }
                             ]
                           }
@@ -839,7 +837,7 @@
                   "question": {
                     "id": "questionnature-of-work-carried-on-at-the-new-unit",
                     "title": {
-                      "text": "What is the nature of work carried on at the new unit <em>{name_of_new_unit}</em> <em>{address_and_postcode_of_new_unit}</em>?",
+                      "text": "What is the nature of work carried on at the new unit <em>{name_of_new_unit}</em>, <em>{address_and_postcode_of_new_unit}</em>?",
                       "placeholders": [
                         {
                           "placeholder": "name_of_new_unit",
@@ -875,7 +873,7 @@
                   "question": {
                     "id": "questionnumber-of-persons-employed-at-the-new-unit",
                     "title": {
-                      "text": "What is the number of persons employed at the new unit <em>{name_of_new_unit}</em> <em>{address_and_postcode_of_new_unit}</em>?",
+                      "text": "What is the number of persons employed at the new unit {name_of_new_unit}, {address_and_postcode_of_new_unit}?",
                       "placeholders": [
                         {
                           "placeholder": "name_of_new_unit",
@@ -912,7 +910,7 @@
                   "question": {
                     "id": "questiondate-new-unit-came-into-production",
                     "title": {
-                      "text": "What date did the new unit <em>{name_of_new_unit}</em> <em>{address_and_postcode_of_new_unit}</em> come into production?",
+                      "text": "What date did the new unit {name_of_new_unit}, {address_and_postcode_of_new_unit} come into production?",
                       "placeholders": [
                         {
                           "placeholder": "name_of_new_unit",
@@ -1059,7 +1057,13 @@
                 "guidance": {
                   "contents": [
                     {
-                      "description": "Include<strong> </strong>comments on figures included in this return, for example, to explain any substantial fluctuations in your figures compared with those of the previous return."
+                      "description": "<strong>Include:</strong>"
+                    },
+                    {
+                      "list": [
+                        "comments on figures included in this return, for example, to explain any substantial fluctuations in your figures compared with those of the previous return",
+                        "any additional information about your business&#39;s local units"
+                      ]
                     }
                   ]
                 },
