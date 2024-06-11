@@ -252,7 +252,7 @@ tqdm = "*"
 [package.source]
 type = "git"
 url = "https://github.com/ONSDigital/eq-translations"
-reference = "v4.9.2"
+reference = "v4.9.1"
 resolved_reference = "a00c4e32423fb40a6edc01755160e29e11f25bd8"
 
 [[package]]
