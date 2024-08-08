@@ -5,15 +5,15 @@
   "data_version": "0.0.3",
   "preview_questions": false,
   "survey_id": "221",
-  "form_type": "0017",
+  "form_type": "0015",
   "legal_basis": "Notice is given under section 1 of the Statistics of Trade Act 1947.",
   "answer_codes": [
     {
-      "answer_id": "answerf0d3996c-ef4a-4e34-8ce0-84eb7faa36dc",
+      "answer_id": "answer150fb2c2-17c6-491b-b000-fb4256ef2d41",
       "code": "9955"
     },
     {
-      "answer_id": "answerb42acf1e-7b54-48e8-9551-5a1e29782073",
+      "answer_id": "answerb17dba0c-2cb7-4c0e-abf0-8e15fa6305f8",
       "code": "9954"
     },
     {
@@ -53,11 +53,11 @@
       "code": "9998"
     },
     {
-      "answer_id": "answerf8197dc4-d625-4d94-a847-a17538c49179",
+      "answer_id": "answerec8fd75b-9e22-4bff-a437-d112fb672b27",
       "code": "9972"
     },
     {
-      "answer_id": "answer6df5abbc-5b82-4905-be7c-12ce76db8c4c",
+      "answer_id": "answerf72fe0a6-3e67-4117-b5a8-e255abdf763a",
       "code": "9971"
     },
     {
@@ -65,7 +65,7 @@
       "code": "9997"
     },
     {
-      "answer_id": "answer39ee76fe-876d-4be6-b9af-b07c3293213a",
+      "answer_id": "answerc5d2721f-34a1-4771-8b7e-6f17370aee3d",
       "code": "9970"
     },
     {
@@ -73,7 +73,7 @@
       "code": "9969"
     },
     {
-      "answer_id": "answer20ac6fbf-c717-4a0c-a678-453f7f46f1a0",
+      "answer_id": "answere81c2d01-dedd-490f-857f-9ea89eeb4d53",
       "code": "033"
     },
     {
@@ -89,23 +89,23 @@
       "code": "150"
     },
     {
-      "answer_id": "answer86efe36e-0f87-4849-a6d4-1b0c39add614",
+      "answer_id": "answera5b65357-2a80-4ef8-8ba1-1e86fcb0ce12",
       "code": "081"
     },
     {
-      "answer_id": "answera5b65357-2a80-4ef8-8ba1-1e86fcb0ce12",
+      "answer_id": "answere5ba3443-7645-41f2-b752-18b2322e1bdd",
       "code": "a081"
     },
     {
-      "answer_id": "answer35225d31-2214-4e7f-b838-6de8aed0baf9",
+      "answer_id": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
       "code": "9951"
     },
     {
-      "answer_id": "answer69ad8d1f-741b-424b-b550-cb8ace002507",
+      "answer_id": "answer48bb2ffd-e6df-4452-9a18-156b2d00228b",
       "code": "9950"
     },
     {
-      "answer_id": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
+      "answer_id": "answerb091daac-db74-40b7-94c3-829a78da123f",
       "code": "9949"
     },
     {
@@ -133,7 +133,7 @@
       "code": "9957"
     },
     {
-      "answer_id": "answer4c60ee61-da61-4b10-9879-899c64bfc68a",
+      "answer_id": "answer4803bf95-d05c-4fb4-ad02-277444e0f3c1",
       "code": "9956"
     },
     {
@@ -145,7 +145,7 @@
       "code": "b155"
     },
     {
-      "answer_id": "answer4b0ee719-6e1c-4d67-bea3-03d3da7e2e68",
+      "answer_id": "answerdf516143-8d4c-4912-affa-c9220aa9d0a1",
       "code": "b156"
     },
     {
@@ -181,7 +181,7 @@
       "code": "c155"
     },
     {
-      "answer_id": "answer458322b7-5f0d-4f6e-8137-92a1df34c6ac",
+      "answer_id": "answer25ca2927-c031-4b35-b6c8-7e870733aa0a",
       "code": "c156"
     },
     {
@@ -193,27 +193,27 @@
       "code": "210"
     },
     {
-      "answer_id": "answerf70c8db8-2600-4157-a535-c9591dad086f",
+      "answer_id": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06",
       "code": "9946"
     },
     {
-      "answer_id": "answerda994661-7917-426e-8014-e95e687027c8",
+      "answer_id": "answer6ffe086b-08cd-4e00-a236-832dc96e328c",
       "code": "9945"
     },
     {
-      "answer_id": "answer1131d333-f623-411a-9521-c346d080f6b4",
+      "answer_id": "answer192ae734-214e-4311-98b4-81d7ba79d626",
       "code": "9944"
     },
     {
-      "answer_id": "answer2bec4f87-f68d-407b-9892-5735449a9ee3",
+      "answer_id": "answer1b9d801f-6fdd-456a-a93f-61482b46f9b3",
       "code": "9943"
     },
     {
-      "answer_id": "answer493d23a1-b7f3-469d-96c8-19eec7255aee",
+      "answer_id": "answer5cd2b937-68e8-4552-8c02-e82ab38943b6",
       "code": "9942"
     },
     {
-      "answer_id": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c",
+      "answer_id": "answerc1d0ffff-be17-484e-9571-020b19a74405",
       "code": "9941"
     }
   ],
@@ -373,7 +373,7 @@
                           "VAT details",
                           "employer&#39;s PAYE references",
                           "additional references not already captured",
-                          "directors or working owners not paid via PAYE",
+                          "number of directors or working owners not paid via PAYE",
                           "number of sites in Great Britain",
                           "number of employees"
                         ]
@@ -434,7 +434,7 @@
                         "ONS uses the IDBR to design statistical surveys required to produce UK National Accounts.",
                         "Your information contributes to <a href=\"https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes\" target=\"_blank\" rel=\"noopener noreferrer\">local and national employment statistics (this link opens in a new tab)</a>, which are used in policy making, strategic planning and monitoring of employment trends by government departments and local authorities.",
                         "The information also feeds into a number of key measures of the UK economy.",
-                        "<a href=\"https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/businessregisterandemploymentsurveybresprovisionalresults/provisionalresults2022revisedresults2021\" target=\"_blank\" rel=\"noopener noreferrer\">View the latest publication produced from this survey (this link opens in a new tab)</a>."
+                        "<a href=\"https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/businessregisterandemploymentsurveybresprovisionalresults/provisionalresults2022revisedresults2021\" target=\"_blank\" rel=\"noopener noreferrer\">View the latest publication produced from this survey (this link opens in a new tab)</a>"
                       ]
                     }
                   ]
@@ -514,12 +514,12 @@
                   ]
                 },
                 "description": [
-                  "<p>If you have a trading style or a name the business trades under registered with us, this will appear in brackets after your business name.</p><p>The business name specified may not be your business&#x2019;s legal name if you have previously agreed a reporting structure with ONS.</p>"
+                  "<p>If you have a trading style or a name the business trades under registered with us, this will appear in brackets after your business name. </p><p>The business name specified may not be your business&#x2019;s legal name if you have previously agreed a reporting structure with ONS.</p>"
                 ],
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answerf0d3996c-ef4a-4e34-8ce0-84eb7faa36dc",
+                    "id": "answer150fb2c2-17c6-491b-b000-fb4256ef2d41",
                     "mandatory": true,
                     "type": "Radio",
                     "options": [
@@ -542,7 +542,7 @@
                   "when": {
                     "in": [
                       {
-                        "identifier": "answerf0d3996c-ef4a-4e34-8ce0-84eb7faa36dc",
+                        "identifier": "answer150fb2c2-17c6-491b-b000-fb4256ef2d41",
                         "source": "answers"
                       },
                       ["Yes, the business name is correct"]
@@ -562,7 +562,7 @@
                 "title": "What is the correct name of your business?",
                 "description": [
                   {
-                    "text": "<p>Business name we currently hold: </p><p>{ru_name}</p><p>If you have a trading style or a name the business trades under, include this in brackets after your business name.</p>",
+                    "text": "<p>Business name we currently hold: </p><p>{ru_name} </p><p>If you have a trading style or a name the business trades under, include this in brackets after your business name.</p>",
                     "placeholders": [
                       {
                         "placeholder": "ru_name",
@@ -577,7 +577,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answerb42acf1e-7b54-48e8-9551-5a1e29782073",
+                    "id": "answerb17dba0c-2cb7-4c0e-abf0-8e15fa6305f8",
                     "mandatory": true,
                     "type": "TextField",
                     "label": "Correct business name"
@@ -935,31 +935,24 @@
                     }
                   ]
                 },
+                "description": [
+                  "<p>The <strong>VAT registration number</strong> is 9 numbers, sometimes with &#39;GB&#39; at the start and can be found on your VAT registration certificate. Only enter the 9 numbers.<br><br>If your business is part of a VAT group, the <strong>subsidiary reference number</strong> is the additional 3 numbers after the VAT registration number. Only enter the 3 additional numbers, leave blank if your business is not part of a VAT group.</p>"
+                ],
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answerf8197dc4-d625-4d94-a847-a17538c49179",
+                    "id": "answerec8fd75b-9e22-4bff-a437-d112fb672b27",
                     "mandatory": true,
-                    "type": "Number",
+                    "type": "TextField",
                     "label": "VAT registration number",
-                    "description": "This is 9 numbers, sometimes with &#39;GB&#39; at the start and can be found on your VAT registration certificate. Only enter the 9 numbers",
-                    "maximum": {
-                      "value": 999999999,
-                      "exclusive": false
-                    },
-                    "decimal_places": 0
+                    "max_length": 9
                   },
                   {
-                    "id": "answer6df5abbc-5b82-4905-be7c-12ce76db8c4c",
+                    "id": "answerf72fe0a6-3e67-4117-b5a8-e255abdf763a",
                     "mandatory": false,
-                    "type": "Number",
+                    "type": "TextField",
                     "label": "Subsidiary reference number",
-                    "description": "If your business is part of a VAT group, this is the additional 3 numbers after the VAT registration number. Leave blank if your business is not part of a VAT group",
-                    "maximum": {
-                      "value": 999,
-                      "exclusive": false
-                    },
-                    "decimal_places": 0
+                    "max_length": 8
                   }
                 ]
               },
@@ -992,7 +985,7 @@
                 },
                 "description": [
                   {
-                    "text": "<p>This consists of a tax office number followed by an employer&#39;s PAYE reference number, which can be found on your paying-in book and form P35.</p><p>One or both of these may appear blank.</p><p>Tax office number: {employerpaye_taxofficenumber}</p><p>Employer&#39;s PAYE reference number: {employerpaye_reference}</p>",
+                    "text": "<p>This consists of a tax office number followed by an employer&#39;s reference number, which can be found on your paying-in book and form P35.</p><p>One or both of these may appear blank.</p><p>Tax office number: {employerpaye_taxofficenumber}</p><p>Employer&#39;s PAYE reference number: {employerpaye_reference}</p>",
                     "placeholders": [
                       {
                         "placeholder": "employerpaye_taxofficenumber",
@@ -1077,20 +1070,16 @@
                   ]
                 },
                 "description": [
-                  "<p>This consists of a tax office number followed by an employer&#39;s PAYE reference number, which can be found on your paying-in book and form P35.</p>"
+                  "<p>This consists of a tax office number followed by an employer&#39;s PAYE reference number, which can be found on your paying-in book and form P35.<br><br>The <strong>tax office number</strong> is 3 numbers, only enter the 3 numbers. The <strong>employer&#39;s PAYE reference number</strong> can be a combination of up to 10 numbers or characters.</p>"
                 ],
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer39ee76fe-876d-4be6-b9af-b07c3293213a",
+                    "id": "answerc5d2721f-34a1-4771-8b7e-6f17370aee3d",
                     "mandatory": true,
-                    "type": "Number",
+                    "type": "TextField",
                     "label": "Tax office number",
-                    "maximum": {
-                      "value": 999,
-                      "exclusive": false
-                    },
-                    "decimal_places": 0
+                    "max_length": 8
                   },
                   {
                     "id": "answereacc5034-6911-4f10-b129-92ebbaea33b0",
@@ -1113,7 +1102,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer20ac6fbf-c717-4a0c-a678-453f7f46f1a0",
+                    "id": "answere81c2d01-dedd-490f-857f-9ea89eeb4d53",
                     "mandatory": false,
                     "type": "TextArea",
                     "label": "Additional VAT or employer PAYE reference numbers",
@@ -1202,14 +1191,14 @@
                   ]
                 },
                 "description": [
-                  "<p>Provide figures for business activity within Great Britain only. Exclude Northern Ireland.</p><p>Great Britain consists of England, Scotland and Wales.</p>"
+                  "<p>Provide figures for business activity within Great Britain only. Exclude Northern Ireland. </p><p>Great Britain consists of England, Scotland and Wales.</p>"
                 ],
                 "definitions": [
                   {
                     "title": "What we mean by &#39;sites&#39;",
                     "contents": [
                       {
-                        "description": "This refers to sites where one or more persons carried out economic activity for a minimum of 20 hours per week <strong>and</strong> the planned activity for your business was for more than one year."
+                        "description": "This refers to sites where one or more persons carried out economic activity for a minimum of 20 hours per week <strong>and </strong>the planned activity for your business was for more than one year."
                       },
                       {
                         "description": "Examples of sites include:"
@@ -1280,11 +1269,10 @@
                     },
                     {
                       "list": [
-                        "full-time, over 30 hours a week, and part-time, 30 hours or less, employees aged 16 years and over. This includes all workers, both permanent and agency workers, individuals <strong>working from home </strong>and those temporarily absent but still employed, for example those on parental leave or sick leave",
-                        "agency workers paid direct from the agency payroll",
+                        "full-time, over 30 hours a week, and part-time, 30 hours or less, employees aged 16 years and over. This includes individuals <strong>working from home</strong> and those temporarily absent but still employed, for example those on parental leave or sick leave",
                         "employees at sites where the planned activity was for less than one year",
                         "employees at sites staffed for less than 20 hours per week",
-                        "North Sea Oil Workers and any other employees working on the UK Continental Shelf (UKCS). The UKCS is the region of waters surrounding the United Kingdom in which the country claims mineral rights"
+                        "North Sea oil workers and any other employees working on the UK Continental Shelf (UKCS). The UKCS is the region of waters surrounding the United Kingdom in which the country claims mineral rights"
                       ]
                     },
                     {
@@ -1293,6 +1281,7 @@
                     {
                       "list": [
                         "directors and working owners <strong>not</strong> paid via PAYE",
+                        "agency workers paid directly from the agency payroll",
                         "voluntary employees",
                         "former employees only receiving a pension"
                       ]
@@ -1334,7 +1323,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer86efe36e-0f87-4849-a6d4-1b0c39add614",
+                    "id": "answera5b65357-2a80-4ef8-8ba1-1e86fcb0ce12",
                     "mandatory": true,
                     "type": "TextArea",
                     "label": "Comments",
@@ -1369,7 +1358,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answera5b65357-2a80-4ef8-8ba1-1e86fcb0ce12",
+                    "id": "answere5ba3443-7645-41f2-b752-18b2322e1bdd",
                     "mandatory": false,
                     "type": "TextArea",
                     "label": "Comments",
@@ -1458,7 +1447,10 @@
                     "description": "In this section you will be presented with your business&#39;s existing sites. You will be asked to check the information for any errors and provide details of any changes."
                   },
                   {
-                    "description": "If you do not have any existing sites, you will be asked to repeat some of the information you have provided in previous questions.<br><br><strong>This includes:</strong>"
+                    "description": "If you do not have any existing sites, you will be asked to repeat some of the information you have provided in previous questions."
+                  },
+                  {
+                    "description": "<strong>This includes:</strong>"
                   },
                   {
                     "list": [
@@ -1503,7 +1495,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer35225d31-2214-4e7f-b838-6de8aed0baf9",
+                    "id": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
                     "mandatory": true,
                     "type": "Radio",
                     "options": [
@@ -1526,7 +1518,7 @@
                   "when": {
                     "in": [
                       {
-                        "identifier": "answer35225d31-2214-4e7f-b838-6de8aed0baf9",
+                        "identifier": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
                         "source": "answers"
                       },
                       ["Yes, the name of this site is correct"]
@@ -1562,14 +1554,25 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer69ad8d1f-741b-424b-b550-cb8ace002507",
+                    "id": "answer48bb2ffd-e6df-4452-9a18-156b2d00228b",
                     "mandatory": true,
                     "type": "TextField",
                     "label": "Correct site name"
                   }
                 ]
               },
-              "page_title": "Changes to name for this site"
+              "page_title": "Changes to name for this site",
+              "skip_conditions": {
+                "when": {
+                  "in": [
+                    {
+                      "identifier": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
+                      "source": "answers"
+                    },
+                    ["Yes, the name of this site is correct"]
+                  ]
+                }
+              }
             },
             {
               "id": "correct-address-for-this-site",
@@ -1602,7 +1605,7 @@
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
+                    "id": "answerb091daac-db74-40b7-94c3-829a78da123f",
                     "mandatory": true,
                     "type": "Radio",
                     "options": [
@@ -1625,7 +1628,7 @@
                   "when": {
                     "in": [
                       {
-                        "identifier": "answerb97e5146-412c-48fc-9e8b-7abfdd41a890",
+                        "identifier": "answerb091daac-db74-40b7-94c3-829a78da123f",
                         "source": "answers"
                       },
                       ["Yes, the address of this site is correct"]
@@ -1645,7 +1648,7 @@
                 "title": "What is the correct address for this site?",
                 "description": [
                   {
-                    "text": "<p>Address we currently hold:</p><p>{localunits_address}</p>",
+                    "text": "<p>Site address we currently hold:</p><p>{localunits_address}</p>",
                     "placeholders": [
                       {
                         "placeholder": "localunits_address",
@@ -1746,14 +1749,17 @@
                 "guidance": {
                   "contents": [
                     {
-                      "description": "If you answer <strong>no</strong> to this question, include any employees associated with this site in the figures you have reported for your main or head site.<br><br>You will be able to amend your figures in the business structure section once you have answered this question."
+                      "description": "If you answer <strong>no</strong> to this question, include any employees associated with this site in the figures you have reported for your main or head site."
+                    },
+                    {
+                      "description": "You will be able to amend your figures in the business structure section once you have answered this question."
                     }
                   ]
                 },
                 "type": "General",
                 "answers": [
                   {
-                    "id": "answer4c60ee61-da61-4b10-9879-899c64bfc68a",
+                    "id": "answer4803bf95-d05c-4fb4-ad02-277444e0f3c1",
                     "mandatory": true,
                     "type": "Radio",
                     "options": [
@@ -1776,7 +1782,7 @@
                   "when": {
                     "in": [
                       {
-                        "identifier": "answer4c60ee61-da61-4b10-9879-899c64bfc68a",
+                        "identifier": "answer4803bf95-d05c-4fb4-ad02-277444e0f3c1",
                         "source": "answers"
                       },
                       ["Yes"]
@@ -1892,7 +1898,6 @@
                     {
                       "list": [
                         "full-time, over 30 hours a week, and part-time, 30 hours or less, employees aged 16 years and over. This includes individuals <strong>working from home</strong> and those temporarily absent but still employed, for example those on parental leave or sick leave",
-                        "agency workers paid direct from the agency payroll",
                         "North Sea oil workers and any other employees working on the UK Continental Shelf (UKCS). The UKCS is the region of waters surrounding the United Kingdom in which the country claims mineral rights",
                         "home or field workers whose work was organised from this site"
                       ]
@@ -1903,6 +1908,7 @@
                     {
                       "list": [
                         "directors and working owners <strong>not</strong> paid via PAYE",
+                        "agency workers paid directly from the agency payroll",
                         "voluntary employees",
                         "former employees only receiving a pension"
                       ]
@@ -1930,7 +1936,7 @@
                     "decimal_places": 0
                   },
                   {
-                    "id": "answer4b0ee719-6e1c-4d67-bea3-03d3da7e2e68",
+                    "id": "answerdf516143-8d4c-4912-affa-c9220aa9d0a1",
                     "mandatory": true,
                     "type": "Number",
                     "label": "Number of part-time employees",
@@ -1973,7 +1979,7 @@
                       "source": "answers"
                     },
                     {
-                      "identifier": "answer4b0ee719-6e1c-4d67-bea3-03d3da7e2e68",
+                      "identifier": "answerdf516143-8d4c-4912-affa-c9220aa9d0a1",
                       "source": "answers"
                     }
                   ]
@@ -2237,7 +2243,7 @@
                 "guidance": {
                   "contents": [
                     {
-                      "description": "If you answer <strong>no</strong> to this question, include any employees associated with this site in the figures you have reported for your main or head site.<br><br>You will be able to amend your figures in the business structure section once you have answered this question."
+                      "description": "If you answer <strong>no </strong>to this question, include any employees associated with this site in the figures you have reported for your main or head site.<br><br>You will be able to amend your figures in the business structure section once you have answered this question."
                     }
                   ]
                 },
@@ -2402,37 +2408,37 @@
                       "label": "Trading style or the name the site trades under"
                     },
                     {
-                      "id": "answerf70c8db8-2600-4157-a535-c9591dad086f",
+                      "id": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06",
                       "mandatory": true,
                       "type": "TextField",
                       "label": "Address line 1"
                     },
                     {
-                      "id": "answerda994661-7917-426e-8014-e95e687027c8",
+                      "id": "answer6ffe086b-08cd-4e00-a236-832dc96e328c",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 2"
                     },
                     {
-                      "id": "answer1131d333-f623-411a-9521-c346d080f6b4",
+                      "id": "answer192ae734-214e-4311-98b4-81d7ba79d626",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 3"
                     },
                     {
-                      "id": "answer2bec4f87-f68d-407b-9892-5735449a9ee3",
+                      "id": "answer1b9d801f-6fdd-456a-a93f-61482b46f9b3",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 4"
                     },
                     {
-                      "id": "answer493d23a1-b7f3-469d-96c8-19eec7255aee",
+                      "id": "answer5cd2b937-68e8-4552-8c02-e82ab38943b6",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 5"
                     },
                     {
-                      "id": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c",
+                      "id": "answerc1d0ffff-be17-484e-9571-020b19a74405",
                       "mandatory": true,
                       "type": "TextField",
                       "label": "Postcode",
@@ -2509,37 +2515,37 @@
                       "label": "Trading style or the name the site trades under"
                     },
                     {
-                      "id": "answerf70c8db8-2600-4157-a535-c9591dad086f",
+                      "id": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06",
                       "mandatory": true,
                       "type": "TextField",
                       "label": "Address line 1"
                     },
                     {
-                      "id": "answerda994661-7917-426e-8014-e95e687027c8",
+                      "id": "answer6ffe086b-08cd-4e00-a236-832dc96e328c",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 2"
                     },
                     {
-                      "id": "answer1131d333-f623-411a-9521-c346d080f6b4",
+                      "id": "answer192ae734-214e-4311-98b4-81d7ba79d626",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 3"
                     },
                     {
-                      "id": "answer2bec4f87-f68d-407b-9892-5735449a9ee3",
+                      "id": "answer1b9d801f-6fdd-456a-a93f-61482b46f9b3",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 4"
                     },
                     {
-                      "id": "answer493d23a1-b7f3-469d-96c8-19eec7255aee",
+                      "id": "answer5cd2b937-68e8-4552-8c02-e82ab38943b6",
                       "mandatory": false,
                       "type": "TextField",
                       "label": "Address line 5"
                     },
                     {
-                      "id": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c",
+                      "id": "answerc1d0ffff-be17-484e-9571-020b19a74405",
                       "mandatory": true,
                       "type": "TextField",
                       "label": "Postcode",
@@ -2601,27 +2607,27 @@
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answerf70c8db8-2600-4157-a535-c9591dad086f"
+                                "identifier": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06"
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answerda994661-7917-426e-8014-e95e687027c8"
+                                "identifier": "answer6ffe086b-08cd-4e00-a236-832dc96e328c"
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answer1131d333-f623-411a-9521-c346d080f6b4"
+                                "identifier": "answer192ae734-214e-4311-98b4-81d7ba79d626"
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answer2bec4f87-f68d-407b-9892-5735449a9ee3"
+                                "identifier": "answer1b9d801f-6fdd-456a-a93f-61482b46f9b3"
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answer493d23a1-b7f3-469d-96c8-19eec7255aee"
+                                "identifier": "answer5cd2b937-68e8-4552-8c02-e82ab38943b6"
                               },
                               {
                                 "source": "answers",
-                                "identifier": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c"
+                                "identifier": "answerc1d0ffff-be17-484e-9571-020b19a74405"
                               }
                             ]
                           },
@@ -2675,27 +2681,27 @@
                       },
                       {
                         "source": "answers",
-                        "identifier": "answerf70c8db8-2600-4157-a535-c9591dad086f"
+                        "identifier": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06"
                       },
                       {
                         "source": "answers",
-                        "identifier": "answerda994661-7917-426e-8014-e95e687027c8"
+                        "identifier": "answer6ffe086b-08cd-4e00-a236-832dc96e328c"
                       },
                       {
                         "source": "answers",
-                        "identifier": "answer1131d333-f623-411a-9521-c346d080f6b4"
+                        "identifier": "answer192ae734-214e-4311-98b4-81d7ba79d626"
                       },
                       {
                         "source": "answers",
-                        "identifier": "answer2bec4f87-f68d-407b-9892-5735449a9ee3"
+                        "identifier": "answer1b9d801f-6fdd-456a-a93f-61482b46f9b3"
                       },
                       {
                         "source": "answers",
-                        "identifier": "answer493d23a1-b7f3-469d-96c8-19eec7255aee"
+                        "identifier": "answer5cd2b937-68e8-4552-8c02-e82ab38943b6"
                       },
                       {
                         "source": "answers",
-                        "identifier": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c"
+                        "identifier": "answerc1d0ffff-be17-484e-9571-020b19a74405"
                       }
                     ]
                   },
@@ -2721,7 +2727,7 @@
               "id": "additional-site-details",
               "page_title": "Additional site details",
               "content": {
-                "title": "Additional sites details",
+                "title": "Additional site details",
                 "contents": [
                   {
                     "description": {
@@ -2737,14 +2743,14 @@
                         {
                           "placeholder": "address_line_1",
                           "value": {
-                            "identifier": "answerf70c8db8-2600-4157-a535-c9591dad086f",
+                            "identifier": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06",
                             "source": "answers"
                           }
                         },
                         {
                           "placeholder": "postcode",
                           "value": {
-                            "identifier": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c",
+                            "identifier": "answerc1d0ffff-be17-484e-9571-020b19a74405",
                             "source": "answers"
                           }
                         }
@@ -2775,14 +2781,14 @@
                     {
                       "placeholder": "address_line_1",
                       "value": {
-                        "identifier": "answerf70c8db8-2600-4157-a535-c9591dad086f",
+                        "identifier": "answer000ad6ba-e994-49c5-93f3-81f5cd537c06",
                         "source": "answers"
                       }
                     },
                     {
                       "placeholder": "postcode",
                       "value": {
-                        "identifier": "answerebdb95bd-89fb-4f12-985f-c7c2f747522c",
+                        "identifier": "answerc1d0ffff-be17-484e-9571-020b19a74405",
                         "source": "answers"
                       }
                     }
@@ -2887,7 +2893,6 @@
                     {
                       "list": [
                         "full-time, over 30 hours a week, and part-time, 30 hours or less, employees aged 16 years and over. This includes individuals <strong>working from home</strong> and those temporarily absent but still employed, for example those on parental leave or sick leave",
-                        "agency workers paid direct from the agency payroll",
                         "North Sea oil workers and any other employees working on the UK Continental Shelf (UKCS). The UKCS is the region of waters surrounding the United Kingdom in which the country claims mineral rights",
                         "home or field workers whose work was organised from this site"
                       ]
@@ -2898,6 +2903,7 @@
                     {
                       "list": [
                         "directors and working owners <strong>not</strong> paid via PAYE",
+                        "agency workers paid directly from the agency payroll",
                         "voluntary employees",
                         "former employees only receiving a pension"
                       ]
@@ -2925,7 +2931,7 @@
                     "decimal_places": 0
                   },
                   {
-                    "id": "answer458322b7-5f0d-4f6e-8137-92a1df34c6ac",
+                    "id": "answer25ca2927-c031-4b35-b6c8-7e870733aa0a",
                     "mandatory": true,
                     "type": "Number",
                     "label": "Number of part-time employees",
@@ -2968,7 +2974,7 @@
                       "source": "answers"
                     },
                     {
-                      "identifier": "answer458322b7-5f0d-4f6e-8137-92a1df34c6ac",
+                      "identifier": "answer25ca2927-c031-4b35-b6c8-7e870733aa0a",
                       "source": "answers"
                     }
                   ]
