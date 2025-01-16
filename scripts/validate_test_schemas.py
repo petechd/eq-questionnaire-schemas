@@ -1,5 +1,6 @@
 import glob
 import json
+import logging
 import os
 import re
 import subprocess
@@ -10,6 +11,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 error = False
 passed = 0
 failed = 0
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def validate_schema(schema_path):
@@ -34,7 +39,7 @@ def validate_schema(schema_path):
         )
         return schema_path, result.stdout
     except subprocess.CalledProcessError as e:
-        print(f"Error validating schema {schema_path}: {e}")
+        logging.info(f"Error validating schema {schema_path}: {e}")
         return schema_path, None
 
 
@@ -58,13 +63,13 @@ def main():
         ).stdout.strip()
 
         if response != "200":
-            print("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
-            print(f"\033[31mHTTP Status: {response}\033[0m")
+            logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
+            logging.error(f"\033[31mHTTP Status: {response}\033[0m")
             if checks != 1:
-                print("Retrying...\n")
+                logging.info("Retrying...\n")
                 time.sleep(5)
             else:
-                print("Exiting...\n")
+                logging.info("Exiting...\n")
                 sys.exit(1)
             checks -= 1
         else:
@@ -77,7 +82,7 @@ def main():
         file_path = sys.argv[1]
 
     schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
-    print(f"--- Testing Schemas in {file_path} ---")
+    logging.info(f"--- Testing Schemas in {file_path} ---")
 
     with ThreadPoolExecutor(max_workers=20) as executor:
         future_to_schema = {
@@ -100,20 +105,22 @@ def main():
                 result_response = re.search(r"HTTPSTATUS:(\d+)", result)[1]
 
                 if result_response == "200" and http_body_json == {}:
-                    print(f"\033[32m{schema_path}: PASSED\033[0m")
+                    logging.info(f"\033[32m{schema_path}: PASSED\033[0m")
                     global passed
                     passed += 1
                 else:
-                    print(f"\033[31m{schema_path}: FAILED\033[0m")
-                    print(f"\033[31mHTTP Status @ /validate: {result_response}\033[0m")
-                    print(f"\033[31mHTTP Status: {formatted_json}\033[0m")
+                    logging.error(f"\033[31m{schema_path}: FAILED\033[0m")
+                    logging.error(
+                        f"\033[31mHTTP Status @ /validate: {result_response}\033[0m"
+                    )
+                    logging.error(f"\033[31mHTTP Status: {formatted_json}\033[0m")
                     global error, failed
                     error = True
                     failed += 1
             except Exception as e:
-                print(f"\033[31mError processing {schema}: {e}\033[0m")
+                logging.error(f"\033[31mError processing {schema}: {e}\033[0m")
 
-    print(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
+    logging.info(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
     if error:
         sys.exit(1)
 
