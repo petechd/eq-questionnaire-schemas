@@ -7,10 +7,6 @@ import time
 import glob
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from logging import getLogger
-
-logger = getLogger()
-
 error = False
 passed = 0
 failed = 0
@@ -38,7 +34,7 @@ def validate_schema(schema_path):
         )
         return schema_path, result.stdout
     except subprocess.CalledProcessError as e:
-        logger.info(f"Error validating schema {schema_path}: {e}")
+        print(f"Error validating schema {schema_path}: {e}")
         return schema_path, None
 
 
@@ -81,7 +77,7 @@ def main():
         file_path = sys.argv[1]
 
     schemas = glob.glob(os.path.join(file_path, '**', '*.json'), recursive=True)
-    logger.info(f"--- Testing {file_path} Schema ---")
+    print(f"--- Testing Schemas in {file_path} ---")
 
     with ThreadPoolExecutor(max_workers=20) as executor:
         future_to_schema = {
@@ -104,22 +100,22 @@ def main():
                 result_response = re.search(r"HTTPSTATUS:(\d+)", result)[1]
 
                 if result_response == "200" and http_body_json == {}:
-                    logger.info(f"\033[32m{schema_path}: PASSED\033[0m")
+                    print(f"\033[32m{schema_path}: PASSED\033[0m")
                     global passed
                     passed += 1
                 else:
-                    logger.error(f"\033[31m{schema_path}: FAILED\033[0m")
-                    logger.error(
+                    print(f"\033[31m{schema_path}: FAILED\033[0m")
+                    print(
                         f"\033[31mHTTP Status @ /validate: {result_response}\033[0m"
                     )
-                    logger.error(f"\033[31mHTTP Status: {formatted_json}\033[0m")
+                    print(f"\033[31mHTTP Status: {formatted_json}\033[0m")
                     global error, failed
                     error = True
                     failed += 1
             except Exception as e:
-                logger.error(f"\033[31mError processing {schema}: {e}\033[0m")
+                print(f"\033[31mError processing {schema}: {e}\033[0m")
     if error:
-        logger.info(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
+        print(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
         sys.exit(1)
 
 
