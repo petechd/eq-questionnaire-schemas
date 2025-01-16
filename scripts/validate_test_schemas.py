@@ -4,6 +4,7 @@ import re
 import subprocess
 import sys
 import time
+import glob
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from logging import getLogger
@@ -75,16 +76,12 @@ def main():
 
     if len(sys.argv) == 1 or sys.argv[1] == "--local":
         file_path = "./schemas"
-        schemas = [
-            os.path.join(file_path, f)
-            for f in os.listdir(file_path)
-            if f.endswith(".json")
-        ]
-        logger.info(f"--- Testing Schemas in {file_path} ---")
+
     else:
         file_path = sys.argv[1]
-        schemas = [sys.argv[1]]
-        logger.info(f"--- Testing {file_path} Schema ---")
+
+    schemas = glob.glob(os.path.join(file_path, '**', '*.json'), recursive=True)
+    logger.info(f"--- Testing {file_path} Schema ---")
 
     with ThreadPoolExecutor(max_workers=20) as executor:
         future_to_schema = {
