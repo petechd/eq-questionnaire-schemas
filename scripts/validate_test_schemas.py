@@ -1,10 +1,10 @@
+import glob
 import json
 import os
 import re
 import subprocess
 import sys
 import time
-import glob
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 error = False
@@ -76,7 +76,7 @@ def main():
     else:
         file_path = sys.argv[1]
 
-    schemas = glob.glob(os.path.join(file_path, '**', '*.json'), recursive=True)
+    schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
     print(f"--- Testing Schemas in {file_path} ---")
 
     with ThreadPoolExecutor(max_workers=20) as executor:
@@ -105,17 +105,16 @@ def main():
                     passed += 1
                 else:
                     print(f"\033[31m{schema_path}: FAILED\033[0m")
-                    print(
-                        f"\033[31mHTTP Status @ /validate: {result_response}\033[0m"
-                    )
+                    print(f"\033[31mHTTP Status @ /validate: {result_response}\033[0m")
                     print(f"\033[31mHTTP Status: {formatted_json}\033[0m")
                     global error, failed
                     error = True
                     failed += 1
             except Exception as e:
                 print(f"\033[31mError processing {schema}: {e}\033[0m")
+
+    print(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
     if error:
-        print(f"\033[32m{passed} passed\033[0m - \033[31m{failed} failed\033[0m")
         sys.exit(1)
 
 
