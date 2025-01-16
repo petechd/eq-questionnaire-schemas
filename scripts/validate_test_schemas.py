@@ -58,13 +58,13 @@ def main():
         ).stdout.strip()
 
         if response != "200":
-            logger.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
-            logger.error(f"\033[31mHTTP Status: {response}\033[0m")
+            print("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
+            print(f"\033[31mHTTP Status: {response}\033[0m")
             if checks != 1:
-                logger.info("Retrying...\n")
+                print("Retrying...\n")
                 time.sleep(5)
             else:
-                logger.info("Exiting...\n")
+                print("Exiting...\n")
                 sys.exit(1)
             checks -= 1
         else:
