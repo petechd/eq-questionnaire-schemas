@@ -6,9 +6,9 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from structlog import get_logger
+from logging import getLogger
 
-logger = get_logger()
+logger = getLogger()
 
 error = False
 passed = 0
@@ -74,7 +74,7 @@ def main():
             checks = 0
 
     if len(sys.argv) == 1 or sys.argv[1] == "--local":
-        file_path = "./schemas/test/en"
+        file_path = "./schemas"
         schemas = [
             os.path.join(file_path, f)
             for f in os.listdir(file_path)
