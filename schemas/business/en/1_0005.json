@@ -41,7 +41,7 @@
                           {
                             "arguments": {
                               "trad_as": {
-                                "source": "metadata",
+                                "source": "metadatax",
                                 "identifier": "trad_as"
                               }
                             },
