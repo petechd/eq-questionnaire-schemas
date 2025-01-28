@@ -13,6 +13,49 @@ logging.basicConfig(
 )
 
 
+def check_connection():
+    checks = 4
+    while checks > 0:
+        response = subprocess.run(
+            [
+                "curl",
+                "-so",
+                "/dev/null",
+                "-w",
+                "%{http_code}",
+                "http://localhost:5002/status",
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        ).stdout.strip()
+
+        if response != "200":
+            logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
+            logging.error("\033[31mHTTP Status: %s\033[0m", response)
+            if checks != 1:
+                logging.info("Retrying...\n")
+                time.sleep(5)
+            else:
+                logging.info("Exiting...\n")
+                sys.exit(1)
+            checks -= 1
+        else:
+            checks = 0
+
+
+def get_schemas() -> list[str]:
+    if len(sys.argv) == 1 or sys.argv[1] == "--local":
+        file_path = "./schemas"
+
+    else:
+        file_path = sys.argv[1]
+
+    schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
+    logging.info(f"--- Testing Schemas in {file_path} ---")
+    return schemas
+
+
 def validate_schema(schema_path):
     try:
         result = subprocess.run(
@@ -40,48 +83,13 @@ def validate_schema(schema_path):
 
 
 def main():
-    # pylint: disable=broad-exception-caught, too-many-locals
-    checks = 4
+    # pylint: disable=broad-exception-caught
     error = False
     passed = 0
     failed = 0
 
-    while checks > 0:
-        response = subprocess.run(
-            [
-                "curl",
-                "-so",
-                "/dev/null",
-                "-w",
-                "%{http_code}",
-                "http://localhost:5002/status",
-            ],
-            capture_output=True,
-            text=True,
-            check=False,
-        ).stdout.strip()
-
-        if response != "200":
-            logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
-            logging.error(f"\033[31mHTTP Status: {response}\033[0m")
-            if checks != 1:
-                logging.info("Retrying...\n")
-                time.sleep(5)
-            else:
-                logging.info("Exiting...\n")
-                sys.exit(1)
-            checks -= 1
-        else:
-            checks = 0
-
-    if len(sys.argv) == 1 or sys.argv[1] == "--local":
-        file_path = "./schemas"
-
-    else:
-        file_path = sys.argv[1]
-
-    schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
-    logging.info(f"--- Testing Schemas in {file_path} ---")
+    check_connection()
+    schemas = get_schemas()
 
     with ThreadPoolExecutor(max_workers=20) as executor:
         future_to_schema = {
