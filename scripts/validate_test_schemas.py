@@ -8,10 +8,6 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-error = False
-passed = 0
-failed = 0
-
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -44,8 +40,11 @@ def validate_schema(schema_path):
 
 
 def main():
-    # pylint: disable=global-statement, broad-exception-caught
+    # pylint: disable=broad-exception-caught
     checks = 4
+    error = False
+    passed = 0
+    failed = 0
 
     while checks > 0:
         response = subprocess.run(
@@ -106,7 +105,6 @@ def main():
 
                 if result_response == "200" and http_body_json == {}:
                     logging.info(f"\033[32m{schema_path}: PASSED\033[0m")
-                    global passed
                     passed += 1
                 else:
                     logging.error(f"\033[31m{schema_path}: FAILED\033[0m")
@@ -114,7 +112,6 @@ def main():
                         f"\033[31mHTTP Status @ /validate: {result_response}\033[0m"
                     )
                     logging.error(f"\033[31mHTTP Status: {formatted_json}\033[0m")
-                    global error, failed
                     error = True
                     failed += 1
             except Exception as e:
