@@ -29,7 +29,7 @@
             {
               "id": "introduction-block",
               "type": "Introduction",
-              "primary_contents": [
+              "primary_content": [
                 {
                   "id": "primary",
                   "title": {
