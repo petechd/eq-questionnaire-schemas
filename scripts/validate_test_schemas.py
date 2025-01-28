@@ -32,7 +32,9 @@ def check_connection():
 
         if response != "200":
             logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
-            logging.error("\033[31mHTTP Status: %s\033[0m", response)
+            logging.error(  # pylint: disable=logging-too-many-args
+                "\033[31mHTTP Status: %s\033[0m", response
+            )
             if checks != 1:
                 logging.info("Retrying...\n")
                 time.sleep(5)
