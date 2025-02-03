@@ -46,13 +46,8 @@ def check_connection():
 
 
 def get_schemas() -> list[str]:
-    arguments = sys.argv
     # argv[0] is the script name, so len(argv) == 1 means no arguments passed
-    if len(arguments) == 1 or arguments[1] == "--local":
-        file_path = "./schemas"
-
-    else:
-        file_path = arguments[1]
+    file_path = "./schemas" if len(sys.argv) == 1 or sys.argv[1] == "--local" else sys.argv[1]
 
     schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
     logging.info(f"--- Testing Schemas in {file_path} ---")
