@@ -14,8 +14,7 @@ logging.basicConfig(
 
 
 def check_connection():
-    checks = 4
-    while checks > 0:
+    for connection_attempts in range(4, 0, -1):
         response = subprocess.run(
             [
                 "curl",
@@ -30,28 +29,30 @@ def check_connection():
             check=False,
         ).stdout.strip()
 
-        if response != "200":
-            logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
-            logging.error(  # pylint: disable=logging-too-many-args
-                "\033[31mHTTP Status: %s\033[0m", response
-            )
-            if checks != 1:
-                logging.info("Retrying...\n")
-                time.sleep(5)
-            else:
-                logging.info("Exiting...\n")
-                sys.exit(1)
-            checks -= 1
-        else:
-            checks = 0
+        if response == "200":
+            return
+
+        logging.error("\033[31m---Error: Schema Validator Not Reachable---\033[0m")
+        logging.error(  # pylint: disable=logging-too-many-args
+            "\033[31mHTTP Status: %s\033[0m", response
+        )
+
+        if connection_attempts == 1:
+            logging.info("Exiting...\n")
+            sys.exit(1)
+
+        logging.info("Retrying...\n")
+        time.sleep(5)
 
 
 def get_schemas() -> list[str]:
-    if len(sys.argv) == 1 or sys.argv[1] == "--local":
+    arguments = sys.argv
+    # argv[0] is the script name, so len(argv) == 1 means no arguments passed
+    if len(arguments) == 1 or arguments[1] == "--local":
         file_path = "./schemas"
 
     else:
-        file_path = sys.argv[1]
+        file_path = arguments[1]
 
     schemas = glob.glob(os.path.join(file_path, "**", "*.json"), recursive=True)
     logging.info(f"--- Testing Schemas in {file_path} ---")
